@@ -57,11 +57,11 @@ export default function Skills() {
     : skillsData.filter(skill => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-[#050505]">
+    <section id="skills" className="py-24 relative overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500">
       {/* Background Ornaments */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-neonBlue/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-neonPurple/10 rounded-full blur-[150px]" />
+        <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-neonBlue/5 dark:bg-neonBlue/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-neonPurple/5 dark:bg-neonPurple/10 rounded-full blur-[150px]" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -74,11 +74,11 @@ export default function Skills() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 transition-colors duration-500">
             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">Skills</span>
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-neonBlue to-neonPurple mx-auto rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="mt-6 text-slate-400 max-w-2xl mx-auto text-lg">
+          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg transition-colors duration-500">
             A comprehensive overview of my technical expertise, categorized by domain. Hover over cards for details.
           </p>
         </motion.div>
@@ -92,7 +92,7 @@ export default function Skills() {
               className={`relative px-5 py-2.5 rounded-full text-sm md:text-base font-medium transition-colors duration-300 ${
                 activeCategory === category
                   ? "text-white"
-                  : "text-slate-400 hover:text-white bg-slate-900/50 hover:bg-slate-800/80 border border-white/5 hover:border-white/10"
+                  : "text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-white/70 dark:bg-slate-900/50 hover:bg-slate-200 dark:hover:bg-slate-800/80 border border-slate-300 dark:border-white/5 hover:border-slate-400 dark:hover:border-white/10"
               }`}
             >
               {activeCategory === category && (
@@ -118,7 +118,7 @@ export default function Skills() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="relative group glass-panel p-6 rounded-2xl border border-white/5 hover:border-neonBlue/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300"
+                className="relative group glass-panel bg-white/70 dark:bg-white/5 p-6 rounded-2xl border border-slate-200 dark:border-white/5 hover:border-neonBlue/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300"
               >
                 {/* Custom Tooltip */}
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none bg-slate-800 text-xs text-white px-3 py-1.5 rounded-lg whitespace-nowrap shadow-[0_0_15px_rgba(59,130,246,0.3)] z-20 translate-y-2 group-hover:translate-y-0">
@@ -127,22 +127,22 @@ export default function Skills() {
                 </div>
 
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-slate-900/80 flex items-center justify-center text-cyan-400 group-hover:text-neonBlue group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300 border border-white/5 group-hover:border-neonBlue/30">
+                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-900/80 flex items-center justify-center text-cyan-600 dark:text-cyan-400 group-hover:text-neonBlue group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300 border border-slate-200 dark:border-white/5 group-hover:border-neonBlue/30">
                     <skill.icon size={22} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white font-semibold text-lg leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-neonBlue group-hover:to-cyan-400 transition-all">
+                    <h3 className="text-slate-900 dark:text-white font-semibold text-lg leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-neonBlue group-hover:to-cyan-500 dark:group-hover:to-cyan-400 transition-all">
                       {skill.name}
                     </h3>
                     <div className="flex justify-between items-center mt-1">
-                      <span className="text-slate-400 text-xs">{skill.category}</span>
+                      <span className="text-slate-500 dark:text-slate-400 text-xs">{skill.category}</span>
                       <span className="text-neonBlue text-xs font-mono font-bold">{skill.level}%</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Progress Bar */}
-                <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden border border-white/5">
+                <div className="h-1.5 w-full bg-slate-200 dark:bg-slate-900 rounded-full overflow-hidden border border-slate-300 dark:border-white/5">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
