@@ -71,7 +71,7 @@ export default function Hero() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#050505]" 
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500" 
       id="home"
     >
       {/* Dynamic Cursor Glow */}
@@ -91,7 +91,7 @@ export default function Hero() {
           animate={{ 
             scale: [1, 1.2, 1],
             rotate: [0, 90, 0],
-            opacity: [0.2, 0.3, 0.2]
+            opacity: [0.1, 0.2, 0.1]
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-neonBlue/20 rounded-full blur-[120px]" 
@@ -100,37 +100,12 @@ export default function Hero() {
           animate={{ 
             scale: [1, 1.5, 1],
             rotate: [0, -90, 0],
-            opacity: [0.15, 0.25, 0.15]
+            opacity: [0.1, 0.2, 0.1]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-neonPurple/20 rounded-full blur-[150px]" 
         />
       </motion.div>
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white/20 rounded-full blur-[1px]"
-            style={{
-              width: Math.random() * 4 + 1 + "px",
-              height: Math.random() * 4 + 1 + "px",
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </div>
 
       <div className="container mx-auto px-6 md:px-12 z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8">
@@ -144,7 +119,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-neonBlue/30 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel bg-white/70 dark:bg-white/5 border border-neonBlue/30 mb-8"
             >
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neonBlue opacity-75"></span>
@@ -157,7 +132,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-4 tracking-tight leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight leading-tight transition-colors duration-500"
             >
               Abdulla <br className="hidden md:block lg:hidden" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-cyan-400 to-neonPurple">
@@ -169,10 +144,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl md:text-4xl font-bold text-slate-300 mb-6 h-[40px] md:h-[48px] flex items-center"
+              className="text-2xl md:text-4xl font-bold text-slate-700 dark:text-slate-300 mb-6 h-[40px] md:h-[48px] flex items-center transition-colors duration-500"
             >
               <span className="mr-3">A</span>
-              <span className="text-white font-mono">{displayText}</span>
+              <span className="text-slate-900 dark:text-white font-mono transition-colors duration-500">{displayText}</span>
               <span className="animate-pulse w-1 h-8 md:h-10 bg-neonBlue ml-1"></span>
             </motion.div>
             
@@ -180,7 +155,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-slate-400 text-lg md:text-xl mb-10 max-w-lg leading-relaxed font-light"
+              className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mb-10 max-w-lg leading-relaxed font-light transition-colors duration-500"
             >
               I build fast, scalable, and secure web applications using modern technologies with a focus on clean design and powerful backend systems.
             </motion.p>
@@ -193,15 +168,15 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="relative overflow-hidden px-8 py-4 bg-white/5 text-white font-semibold rounded-full border border-white/10 hover:border-neonBlue/50 transition-all duration-300 flex items-center gap-2 group shadow-[0_0_0_rgba(59,130,246,0)] hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+                className="relative overflow-hidden px-8 py-4 bg-slate-900 dark:bg-white/5 text-white font-semibold rounded-full border border-transparent dark:border-white/10 hover:border-neonBlue/50 transition-all duration-300 flex items-center gap-2 group shadow-[0_0_0_rgba(59,130,246,0)] hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/20 to-neonPurple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative z-10">View Projects</span>
-                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/80 to-neonPurple/80 dark:from-neonBlue/20 dark:to-neonPurple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10 group-hover:text-white">View Projects</span>
+                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform group-hover:text-white" />
               </a>
               <a
                 href="#contact"
-                className="px-8 py-4 glass-panel text-slate-300 font-semibold rounded-full hover:bg-white/10 hover:text-white transition-all duration-300"
+                className="px-8 py-4 glass-panel bg-white/70 dark:bg-white/5 text-slate-700 dark:text-slate-300 font-semibold rounded-full hover:bg-slate-200 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all duration-300"
               >
                 Contact Me
               </a>
@@ -223,7 +198,7 @@ export default function Hero() {
                   href={social.href} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-slate-400 hover:text-neonBlue hover:border-neonBlue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 group"
+                  className="w-12 h-12 rounded-full glass-panel bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-neonBlue dark:hover:text-neonBlue hover:border-neonBlue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 group"
                 >
                   <social.icon size={22} className="group-hover:scale-110 transition-transform" />
                 </a>
@@ -241,9 +216,9 @@ export default function Hero() {
             {/* Core Glowing Sphere */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <motion.div 
-                animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
+                animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.8, 0.6] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="w-48 h-48 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple blur-[40px] opacity-60"
+                className="w-48 h-48 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple blur-[40px]"
               />
             </div>
             
@@ -251,7 +226,7 @@ export default function Hero() {
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border border-slate-700/50 flex items-center justify-center"
+              className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border border-slate-300 dark:border-slate-700/50 flex items-center justify-center transition-colors duration-500"
             >
               <div className="absolute top-0 w-4 h-4 bg-neonBlue rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)]" />
               <div className="absolute bottom-0 w-3 h-3 bg-neonPurple rounded-full shadow-[0_0_15px_rgba(168,85,247,0.8)]" />
@@ -260,7 +235,7 @@ export default function Hero() {
             <motion.div 
               animate={{ rotate: -360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[200px] h-[200px] md:w-[320px] md:h-[320px] rounded-full border border-slate-700/30 flex items-center justify-center"
+              className="absolute w-[200px] h-[200px] md:w-[320px] md:h-[320px] rounded-full border border-slate-200 dark:border-slate-700/30 flex items-center justify-center transition-colors duration-500"
             >
               <div className="absolute left-0 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
             </motion.div>
@@ -269,11 +244,11 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-10 glass-panel border-white/20 rounded-full p-2 w-56 h-56 md:w-72 md:h-72 flex items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.4)] backdrop-blur-md group"
+              className="relative z-10 glass-panel bg-white/70 dark:bg-white/5 border border-white dark:border-white/20 rounded-full p-2 w-56 h-56 md:w-72 md:h-72 flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.2)] dark:shadow-[0_0_50px_rgba(59,130,246,0.4)] backdrop-blur-md group"
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neonBlue/20 to-neonPurple/20 z-0 animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neonBlue/10 to-neonPurple/10 dark:from-neonBlue/20 dark:to-neonPurple/20 z-0 animate-pulse" />
               
-              <div className="w-full h-full rounded-full overflow-hidden relative z-10 bg-slate-900 border-2 border-neonBlue/50 shadow-inner">
+              <div className="w-full h-full rounded-full overflow-hidden relative z-10 bg-slate-100 dark:bg-slate-900 border-2 border-neonBlue/30 dark:border-neonBlue/50 shadow-inner">
                 <Image 
                   src="/assets/profile.jpg" 
                   alt="Abdulla Thaslim" 
@@ -283,7 +258,7 @@ export default function Hero() {
                 />
                 
                 {/* Holographic overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neonBlue/10 to-neonPurple/20 mix-blend-overlay pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neonBlue/5 to-neonPurple/10 dark:via-neonBlue/10 dark:to-neonPurple/20 mix-blend-overlay pointer-events-none" />
               </div>
             </motion.div>
 
@@ -291,14 +266,14 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [-15, 15, -15], rotate: [-2, 2, -2] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[5%] -left-4 md:-left-20 z-20 glass-panel p-3 md:p-4 rounded-xl border-slate-700/50 shadow-xl max-w-[160px] md:max-w-[200px]"
+              className="absolute top-[5%] -left-4 md:-left-20 z-20 glass-panel bg-white/90 dark:bg-slate-900/90 p-3 md:p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-xl max-w-[160px] md:max-w-[200px]"
             >
-              <div className="flex items-center gap-2 mb-2 pb-2 border-b border-white/10">
+              <div className="flex items-center gap-2 mb-2 pb-2 border-b border-slate-200 dark:border-white/10">
                 <Code2 size={14} className="text-neonBlue" />
-                <span className="text-xs font-mono text-slate-300">frontend.tsx</span>
+                <span className="text-xs font-mono text-slate-700 dark:text-slate-300">frontend.tsx</span>
               </div>
-              <pre className="text-[9px] md:text-[10px] font-mono text-slate-400">
-                <span className="text-pink-400">export default</span> function App() {'{\n'}
+              <pre className="text-[9px] md:text-[10px] font-mono text-slate-600 dark:text-slate-400">
+                <span className="text-pink-600 dark:text-pink-400">export default</span> function App() {'{\n'}
                 {'  '}return {'(\n'}
                 {'    '}&lt;<span className="text-neonBlue">Hero</span> /&gt;{'\n'}
                 {'  )'};{'\n'}
@@ -309,16 +284,16 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [15, -15, 15], rotate: [2, -2, 2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-[10%] -right-4 md:-right-10 z-20 glass-panel p-3 md:p-4 rounded-xl border-slate-700/50 shadow-xl max-w-[160px] md:max-w-[200px]"
+              className="absolute bottom-[10%] -right-4 md:-right-10 z-20 glass-panel bg-white/90 dark:bg-slate-900/90 p-3 md:p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-xl max-w-[160px] md:max-w-[200px]"
             >
-              <div className="flex items-center gap-2 mb-2 pb-2 border-b border-white/10">
+              <div className="flex items-center gap-2 mb-2 pb-2 border-b border-slate-200 dark:border-white/10">
                 <Database size={14} className="text-neonPurple" />
-                <span className="text-xs font-mono text-slate-300">api.ts</span>
+                <span className="text-xs font-mono text-slate-700 dark:text-slate-300">api.ts</span>
               </div>
-              <pre className="text-[9px] md:text-[10px] font-mono text-slate-400">
-                <span className="text-pink-400">async</span> function fetch() {'{\n'}
+              <pre className="text-[9px] md:text-[10px] font-mono text-slate-600 dark:text-slate-400">
+                <span className="text-pink-600 dark:text-pink-400">async</span> function fetch() {'{\n'}
                 {'  '}<span className="text-neonBlue">await</span> db.connect();{'\n'}
-                {'  '}return <span className="text-green-400">"Success"</span>;{'\n'}
+                {'  '}return <span className="text-green-600 dark:text-green-400">"Success"</span>;{'\n'}
                 {'}'}
               </pre>
             </motion.div>
@@ -326,7 +301,7 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [-10, 10, -10], x: [-5, 5, -5] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute -top-[5%] right-[5%] md:right-[10%] z-0 glass-panel p-3 rounded-lg border-slate-700/50 opacity-60 blur-[1px]"
+              className="absolute -top-[5%] right-[5%] md:right-[10%] z-0 glass-panel bg-white/50 dark:bg-white/5 p-3 rounded-lg border border-slate-200 dark:border-slate-700/50 opacity-60 blur-[1px]"
             >
               <Terminal size={20} className="text-slate-400" />
             </motion.div>
@@ -340,9 +315,9 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 dark:text-slate-400"
       >
-        <span className="text-xs font-mono tracking-widest uppercase text-slate-500">Scroll</span>
+        <span className="text-xs font-mono tracking-widest uppercase text-slate-400 dark:text-slate-500">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
