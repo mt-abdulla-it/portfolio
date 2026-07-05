@@ -197,63 +197,6 @@ export default function Certificates() {
     restDelta: 0.001
   });
 
-  // Manual & Auto Scroll Logic
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const isHovered = useRef(false);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
-
-  useEffect(() => {
-    let animationFrameId: number;
-    let lastTimestamp: number;
-    
-    // Auto-scroll speed
-    const speed = 0.03; 
-
-    const scrollStep = (timestamp: number) => {
-      if (!lastTimestamp) lastTimestamp = timestamp;
-      const deltaTime = timestamp - lastTimestamp;
-      lastTimestamp = timestamp;
-
-      const container = scrollRef.current;
-      if (container && !isHovered.current && !isDragging.current) {
-        // Desktop breakpoint check to see if we should auto-scroll
-        if (window.innerWidth >= 1024) {
-          container.scrollLeft += speed * deltaTime;
-          
-          // Infinite scroll reset: when we've scrolled halfway, reset to 0
-          if (container.scrollLeft >= container.scrollWidth / 2) {
-            container.scrollLeft -= container.scrollWidth / 2;
-          }
-        }
-      }
-      animationFrameId = requestAnimationFrame(scrollStep);
-    };
-    
-    animationFrameId = requestAnimationFrame(scrollStep);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (window.innerWidth < 1024) return;
-    isDragging.current = true;
-    startX.current = e.pageX - scrollRef.current!.offsetLeft;
-    scrollLeft.current = scrollRef.current!.scrollLeft;
-  };
-  
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging.current || window.innerWidth < 1024) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current!.offsetLeft;
-    const walk = (x - startX.current) * 2; // scroll speed multiplier
-    scrollRef.current!.scrollLeft = scrollLeft.current - walk;
-  };
-  
-  const handleMouseUpOrLeave = () => {
-    isDragging.current = false;
-  };
-
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (selectedIdx !== null) {
@@ -325,52 +268,39 @@ export default function Certificates() {
         </motion.div>
       </div>
 
-      {/* Desktop Marquee / Mobile & Tablet Grid Hybrid */}
-      <div className="w-full pb-20 pt-10 lg:-rotate-[1deg] lg:scale-105 relative" style={{ perspective: "1200px" }}>
+      {/* Clean Native Horizontal Scroll */}
+      <div className="w-full pb-20 pt-10 relative">
         
         {/* Deep gradient fades for edges (Desktop only) */}
-        <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-48 bg-gradient-to-r from-slate-50 via-slate-50/90 dark:from-[#0a0f1d] dark:via-[#0a0f1d]/90 to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
-        <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-48 bg-gradient-to-l from-slate-50 via-slate-50/90 dark:from-[#0a0f1d] dark:via-[#0a0f1d]/90 to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
+        <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
+        <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
         
         {/* Container */}
         <div 
-          ref={scrollRef}
-          onMouseEnter={() => { isHovered.current = true; }}
-          onMouseLeave={(e) => { 
-            isHovered.current = false; 
-            handleMouseUpOrLeave(); 
-          }}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUpOrLeave}
-          className={`flex flex-col lg:flex-row gap-8 lg:gap-0 container lg:max-w-none mx-auto px-6 lg:px-0 lg:overflow-x-auto no-scrollbar lg:cursor-grab ${isDragging.current ? 'lg:cursor-grabbing' : ''}`}
+          className="flex gap-6 lg:gap-8 overflow-x-auto px-6 lg:px-32 pb-12 snap-x snap-mandatory no-scrollbar items-center"
         >
-          {/* We create 2 sets for desktop marquee looping. On mobile, we only show the first set in a grid. */}
-          {[0, 1].map((setIndex) => (
-            <div 
-              key={setIndex} 
-              className={`flex gap-8 lg:pr-8 ${setIndex === 1 ? 'hidden lg:flex flex-shrink-0' : 'grid grid-cols-1 md:grid-cols-2 lg:flex w-full lg:w-auto flex-shrink-0'}`}
+          {certificates.map((cert, index) => (
+            <motion.div 
+              key={cert.id}
+              className="snap-center shrink-0 w-[90vw] sm:w-[400px] lg:w-[420px]"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: (index % 5) * 0.1, duration: 0.5 }}
             >
-              {certificates.map((cert, index) => (
-                <motion.div 
-                  key={`${cert.id}-${setIndex}`}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (index % 6) * 0.1, duration: 0.6 }}
-                >
-                  <TiltCard 
-                    cert={cert} 
-                    onClick={() => {
-                      if (!isDragging.current) {
-                        setSelectedIdx(index);
-                      }
-                    }} 
-                  />
-                </motion.div>
-              ))}
-            </div>
+              <TiltCard 
+                cert={cert} 
+                onClick={() => setSelectedIdx(index)} 
+              />
+            </motion.div>
           ))}
+        </div>
+        
+        <div className="text-center mt-4">
+          <p className="text-slate-500 dark:text-slate-400 text-sm font-medium animate-pulse flex items-center justify-center gap-2">
+            <span>Swipe to explore</span>
+            <ChevronRight size={16} />
+          </p>
         </div>
       </div>
 
