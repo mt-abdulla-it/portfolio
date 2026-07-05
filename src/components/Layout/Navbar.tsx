@@ -75,14 +75,14 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full glass-panel flex flex-col items-center py-6 gap-6 md:hidden"
+            className="absolute top-full left-0 w-full glass-panel bg-white/95 dark:bg-slate-900/95 flex flex-col items-center py-6 gap-6 md:hidden border-t border-slate-200 dark:border-slate-800"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-medium text-slate-300 hover:text-white"
+                className="text-lg font-medium text-slate-700 dark:text-slate-300 hover:text-neonBlue dark:hover:text-white"
               >
                 {link.name}
               </a>
