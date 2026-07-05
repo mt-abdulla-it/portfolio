@@ -96,7 +96,7 @@ function TiltCard({ cert, onClick }: { cert: typeof certificates[0], onClick: ()
         className="aspect-[4/3] bg-slate-900/80 relative flex items-center justify-center rounded-t-2xl overflow-hidden"
       >
         {cert.image ? (
-          <img src={cert.image} alt={cert.title} loading="lazy" className="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" />
+          <img src={cert.image} alt={cert.title} loading="lazy" className="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110 pointer-events-none" />
         ) : (
           <div className="text-slate-500 font-medium">Image Placeholder</div>
         )}
@@ -116,15 +116,15 @@ function TiltCard({ cert, onClick }: { cert: typeof certificates[0], onClick: ()
         style={{ transform: "translateZ(30px)" }}
         className="p-6 bg-slate-800/60 rounded-b-2xl backdrop-blur-md relative flex flex-col h-[180px]"
       >
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neonBlue transition-colors line-clamp-2 min-h-[3.5rem]">{cert.title}</h3>
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neonBlue transition-colors line-clamp-2 min-h-[3.5rem] pointer-events-none">{cert.title}</h3>
         
-        <div className="flex justify-between items-center text-sm mb-auto">
+        <div className="flex justify-between items-center text-sm mb-auto pointer-events-none">
           <span className="font-medium text-neonPurple">{cert.issuer}</span>
           <span className="text-slate-400">{cert.date}</span>
         </div>
         
         {/* View Button */}
-        <button className="w-full py-2.5 mt-4 rounded-lg bg-slate-700/50 hover:bg-neonBlue/10 border border-slate-600 hover:border-neonBlue/50 text-white font-medium flex items-center justify-center gap-2 transition-all group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+        <button className="w-full py-2.5 mt-4 rounded-lg bg-slate-700/50 hover:bg-neonBlue/10 border border-slate-600 hover:border-neonBlue/50 text-white font-medium flex items-center justify-center gap-2 transition-all group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] pointer-events-none">
           <span>View Certificate</span>
           <ExternalLink size={16} className="text-slate-400 group-hover:text-neonBlue transition-colors" />
         </button>
@@ -188,6 +188,63 @@ export default function Certificates() {
     restDelta: 0.001
   });
 
+  // Manual & Auto Scroll Logic
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isHovered = useRef(false);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    let lastTimestamp: number;
+    
+    // Auto-scroll speed
+    const speed = 0.03; 
+
+    const scrollStep = (timestamp: number) => {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const deltaTime = timestamp - lastTimestamp;
+      lastTimestamp = timestamp;
+
+      const container = scrollRef.current;
+      if (container && !isHovered.current && !isDragging.current) {
+        // Desktop breakpoint check to see if we should auto-scroll
+        if (window.innerWidth >= 1024) {
+          container.scrollLeft += speed * deltaTime;
+          
+          // Infinite scroll reset: when we've scrolled halfway, reset to 0
+          if (container.scrollLeft >= container.scrollWidth / 2) {
+            container.scrollLeft -= container.scrollWidth / 2;
+          }
+        }
+      }
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+    
+    animationFrameId = requestAnimationFrame(scrollStep);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (window.innerWidth < 1024) return;
+    isDragging.current = true;
+    startX.current = e.pageX - scrollRef.current!.offsetLeft;
+    scrollLeft.current = scrollRef.current!.scrollLeft;
+  };
+  
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current || window.innerWidth < 1024) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current!.offsetLeft;
+    const walk = (x - startX.current) * 2; // scroll speed multiplier
+    scrollRef.current!.scrollLeft = scrollLeft.current - walk;
+  };
+  
+  const handleMouseUpOrLeave = () => {
+    isDragging.current = false;
+  };
+
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (selectedIdx !== null) {
@@ -223,24 +280,14 @@ export default function Certificates() {
       />
 
       <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes scrollMarquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); } 
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
         }
-        .marquee-container {
-          display: flex;
-          width: max-content;
-          animation: scrollMarquee 150s linear infinite;
-        }
-        .marquee-wrapper:hover .marquee-container {
-          animation-play-state: paused;
-        }
-        @media (max-width: 1024px) {
-          .marquee-container {
-             animation: none;
-             width: 100%;
-             flex-wrap: wrap;
-          }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
         }
       `}} />
 
@@ -270,21 +317,30 @@ export default function Certificates() {
       </div>
 
       {/* Desktop Marquee / Mobile & Tablet Grid Hybrid */}
-      {/* On large screens, this will auto-scroll. On smaller screens, it breaks into a grid. */}
-      <div className="marquee-wrapper overflow-hidden relative w-full pb-20 pt-10 lg:-rotate-[1deg] lg:scale-105" style={{ perspective: "1200px" }}>
+      <div className="w-full pb-20 pt-10 lg:-rotate-[1deg] lg:scale-105 relative" style={{ perspective: "1200px" }}>
         
         {/* Deep gradient fades for edges (Desktop only) */}
         <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-48 bg-gradient-to-r from-[#0a0f1d] via-[#0a0f1d]/90 to-transparent z-20 pointer-events-none"></div>
         <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-48 bg-gradient-to-l from-[#0a0f1d] via-[#0a0f1d]/90 to-transparent z-20 pointer-events-none"></div>
         
         {/* Container */}
-        <div className="marquee-container flex flex-col lg:flex-row gap-8 lg:gap-0 container lg:w-max mx-auto px-6 lg:px-0">
-          
+        <div 
+          ref={scrollRef}
+          onMouseEnter={() => { isHovered.current = true; }}
+          onMouseLeave={(e) => { 
+            isHovered.current = false; 
+            handleMouseUpOrLeave(); 
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUpOrLeave}
+          className={`flex flex-col lg:flex-row gap-8 lg:gap-0 container lg:max-w-none mx-auto px-6 lg:px-0 lg:overflow-x-auto no-scrollbar lg:cursor-grab ${isDragging ? 'lg:cursor-grabbing' : ''}`}
+        >
           {/* We create 2 sets for desktop marquee looping. On mobile, we only show the first set in a grid. */}
           {[0, 1].map((setIndex) => (
             <div 
               key={setIndex} 
-              className={`flex gap-8 lg:pr-8 ${setIndex === 1 ? 'hidden lg:flex' : 'grid grid-cols-1 md:grid-cols-2 lg:flex w-full'}`}
+              className={`flex gap-8 lg:pr-8 ${setIndex === 1 ? 'hidden lg:flex flex-shrink-0' : 'grid grid-cols-1 md:grid-cols-2 lg:flex w-full lg:w-auto flex-shrink-0'}`}
             >
               {certificates.map((cert, index) => (
                 <motion.div 
@@ -296,7 +352,11 @@ export default function Certificates() {
                 >
                   <TiltCard 
                     cert={cert} 
-                    onClick={() => setSelectedIdx(index)} 
+                    onClick={() => {
+                      if (!isDragging.current) {
+                        setSelectedIdx(index);
+                      }
+                    }} 
                   />
                 </motion.div>
               ))}
