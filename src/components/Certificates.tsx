@@ -280,7 +280,7 @@ export default function Certificates() {
   }, [selectedIdx]);
 
   return (
-    <section id="certificates" className="py-24 relative bg-[#0a0f1d] overflow-hidden">
+    <section id="certificates" className="py-24 relative bg-slate-50 dark:bg-[#0a0f1d] overflow-hidden transition-colors duration-500">
       {/* Scroll Progress Indicator */}
       <motion.div 
         className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neonBlue to-neonPurple z-50 origin-left"
@@ -314,11 +314,11 @@ export default function Certificates() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-20 text-center"
         >
-          <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500 mb-6 tracking-tight uppercase drop-shadow-sm">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-600 to-slate-400 dark:from-white dark:via-slate-200 dark:to-slate-500 mb-6 tracking-tight uppercase drop-shadow-sm transition-colors duration-500">
             CERTIFICATES
           </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-neonBlue to-neonPurple mx-auto rounded-full shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
-          <p className="mt-8 text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="mt-8 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed transition-colors duration-500">
             A showcase of my continuous learning journey, certifications, and verified skills from industry-leading platforms.
           </p>
         </motion.div>
@@ -328,8 +328,8 @@ export default function Certificates() {
       <div className="w-full pb-20 pt-10 lg:-rotate-[1deg] lg:scale-105 relative" style={{ perspective: "1200px" }}>
         
         {/* Deep gradient fades for edges (Desktop only) */}
-        <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-48 bg-gradient-to-r from-[#0a0f1d] via-[#0a0f1d]/90 to-transparent z-20 pointer-events-none"></div>
-        <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-48 bg-gradient-to-l from-[#0a0f1d] via-[#0a0f1d]/90 to-transparent z-20 pointer-events-none"></div>
+        <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-48 bg-gradient-to-r from-slate-50 via-slate-50/90 dark:from-[#0a0f1d] dark:via-[#0a0f1d]/90 to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
+        <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-48 bg-gradient-to-l from-slate-50 via-slate-50/90 dark:from-[#0a0f1d] dark:via-[#0a0f1d]/90 to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
         
         {/* Container */}
         <div 
@@ -342,7 +342,7 @@ export default function Certificates() {
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUpOrLeave}
-          className={`flex flex-col lg:flex-row gap-8 lg:gap-0 container lg:max-w-none mx-auto px-6 lg:px-0 lg:overflow-x-auto no-scrollbar lg:cursor-grab ${isDragging ? 'lg:cursor-grabbing' : ''}`}
+          className={`flex flex-col lg:flex-row gap-8 lg:gap-0 container lg:max-w-none mx-auto px-6 lg:px-0 lg:overflow-x-auto no-scrollbar lg:cursor-grab ${isDragging.current ? 'lg:cursor-grabbing' : ''}`}
         >
           {/* We create 2 sets for desktop marquee looping. On mobile, we only show the first set in a grid. */}
           {[0, 1].map((setIndex) => (
@@ -380,14 +380,14 @@ export default function Certificates() {
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            className="fixed inset-0 z-[100] bg-[#0a0f1d]/90 flex items-center justify-center p-4 md:p-8"
+            className="fixed inset-0 z-[100] bg-white/90 dark:bg-[#0a0f1d]/90 flex items-center justify-center p-4 md:p-8 transition-colors duration-500"
             onClick={() => setSelectedIdx(null)}
             role="dialog"
             aria-modal="true"
             aria-label="Certificate Image Viewer"
           >
             <button 
-              className="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700 p-3 rounded-full transition-all z-50 border border-slate-700 hover:border-white/20"
+              className="absolute top-6 right-6 text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:dark:text-white bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-200 hover:dark:bg-slate-700 p-3 rounded-full transition-all z-50 border border-slate-300 dark:border-slate-700 hover:border-slate-400 hover:dark:border-white/20 shadow-sm"
               onClick={() => setSelectedIdx(null)}
               aria-label="Close modal"
             >
@@ -396,14 +396,14 @@ export default function Certificates() {
 
             {/* Navigation Buttons */}
             <button 
-              className="absolute left-4 md:left-12 text-slate-400 hover:text-neonBlue bg-slate-900/80 hover:bg-slate-800 p-4 rounded-full transition-all z-50 border border-slate-700 hover:border-neonBlue hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] group backdrop-blur-md"
+              className="absolute left-4 md:left-12 text-slate-500 dark:text-slate-400 hover:text-neonBlue bg-slate-100/80 dark:bg-slate-900/80 hover:bg-white hover:dark:bg-slate-800 p-4 rounded-full transition-all z-50 border border-slate-300 dark:border-slate-700 hover:border-neonBlue hover:dark:border-neonBlue hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] group backdrop-blur-md shadow-sm"
               onClick={handlePrev}
               aria-label="Previous certificate"
             >
               <ChevronLeft size={32} className="group-hover:-translate-x-1 transition-transform" />
             </button>
             <button 
-              className="absolute right-4 md:right-12 text-slate-400 hover:text-neonBlue bg-slate-900/80 hover:bg-slate-800 p-4 rounded-full transition-all z-50 border border-slate-700 hover:border-neonBlue hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] group backdrop-blur-md"
+              className="absolute right-4 md:right-12 text-slate-500 dark:text-slate-400 hover:text-neonBlue bg-slate-100/80 dark:bg-slate-900/80 hover:bg-white hover:dark:bg-slate-800 p-4 rounded-full transition-all z-50 border border-slate-300 dark:border-slate-700 hover:border-neonBlue hover:dark:border-neonBlue hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] group backdrop-blur-md shadow-sm"
               onClick={handleNext}
               aria-label="Next certificate"
             >
@@ -416,12 +416,12 @@ export default function Certificates() {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: -100, scale: 0.9 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="max-w-5xl w-full bg-slate-900/90 rounded-3xl overflow-hidden border border-slate-700/50 shadow-[0_0_50px_rgba(0,0,0,0.5)] relative"
+              className="max-w-5xl w-full bg-white/95 dark:bg-slate-900/90 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700/50 shadow-2xl relative transition-colors duration-500"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/10 to-neonPurple/10 pointer-events-none mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/5 to-neonPurple/5 dark:from-neonBlue/10 dark:to-neonPurple/10 pointer-events-none mix-blend-overlay"></div>
               
-              <div className="aspect-[16/10] md:aspect-[21/9] bg-slate-950 flex items-center justify-center p-2 md:p-8 relative">
+              <div className="aspect-[16/10] md:aspect-[21/9] bg-slate-100 dark:bg-slate-950 flex items-center justify-center p-2 md:p-8 relative transition-colors duration-500">
                 {activeCert.image ? (
                   <img 
                     src={activeCert.image} 
@@ -429,22 +429,22 @@ export default function Certificates() {
                     className="w-full h-full object-contain drop-shadow-2xl rounded-xl" 
                   />
                 ) : (
-                  <div className="text-slate-600 font-medium text-2xl flex flex-col items-center gap-4">
-                    <ZoomIn size={48} className="text-slate-700" />
+                  <div className="text-slate-400 dark:text-slate-600 font-medium text-2xl flex flex-col items-center gap-4">
+                    <ZoomIn size={48} className="text-slate-300 dark:text-slate-700" />
                     <span>No High-Res Image Provided</span>
                   </div>
                 )}
               </div>
               
-              <div className="p-8 md:p-10 text-center relative z-10 border-t border-slate-800/80 bg-slate-900/80 backdrop-blur-xl flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="p-8 md:p-10 text-center relative z-10 border-t border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex flex-col md:flex-row justify-between items-center gap-6 transition-colors duration-500">
                 <div className="text-left flex-1">
-                  <div className="inline-block bg-neonBlue/20 text-neonBlue text-sm font-semibold px-3 py-1 rounded-full mb-3 border border-neonBlue/30">
+                  <div className="inline-block bg-neonBlue/10 dark:bg-neonBlue/20 text-neonBlue text-sm font-semibold px-3 py-1 rounded-full mb-3 border border-neonBlue/20 dark:border-neonBlue/30 transition-colors duration-500">
                     {activeCert.category}
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-tight drop-shadow-md">{activeCert.title}</h3>
-                  <div className="text-slate-400 text-lg flex items-center gap-3">
-                    <span className="text-slate-300 font-medium">{activeCert.issuer}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+                  <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-2 tracking-tight drop-shadow-sm transition-colors duration-500">{activeCert.title}</h3>
+                  <div className="text-slate-600 dark:text-slate-400 text-lg flex items-center gap-3 transition-colors duration-500">
+                    <span className="text-slate-800 dark:text-slate-300 font-medium">{activeCert.issuer}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span>
                     <span>{activeCert.date}</span>
                   </div>
                 </div>
@@ -453,7 +453,7 @@ export default function Certificates() {
                   href={activeCert.image} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-gradient-to-r from-neonBlue/20 to-neonPurple/20 hover:from-neonBlue hover:to-neonPurple hover:text-white border border-neonBlue/50 text-neonBlue font-semibold rounded-xl transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] flex items-center gap-2 group"
+                  className="px-6 py-3 bg-gradient-to-r from-neonBlue/10 to-neonPurple/10 hover:from-neonBlue hover:to-neonPurple hover:text-white dark:from-neonBlue/20 dark:to-neonPurple/20 border border-neonBlue/30 dark:border-neonBlue/50 text-neonBlue font-semibold rounded-xl transition-all shadow-[0_0_15px_rgba(59,130,246,0.15)] dark:shadow-[0_0_15px_rgba(59,130,246,0.3)] flex items-center gap-2 group"
                 >
                   <span>Open Full Size</span>
                   <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
