@@ -46,6 +46,7 @@ const certificates = [
   { id: 38, title: "Software Engineering Job Simulation", issuer: "Skyscanner", date: "February 18th, 2026", category: "Software Eng", image: "/assets/certificates/certificates38.jpg" },
   { id: 39, title: "Cybersecurity Job Simulation", issuer: "Mastercard", date: "February 17th, 2026", category: "Cybersecurity", image: "/assets/certificates/certificates39.jpg" },
   { id: 40, title: "Introduction to Software Engineering Job Simulation", issuer: "Commonwealth Bank", date: "February 19th, 2026", category: "Software Eng", image: "/assets/certificates/certificates40.jpg" },
+  { id: 41, title: "IT & Cybersecurity Certificate", issuer: "Cisco", date: "2024", category: "Cybersecurity", image: "/assets/certificates/certificates24.jpg" },
 ];
 
 // Reusable TiltCard Component
