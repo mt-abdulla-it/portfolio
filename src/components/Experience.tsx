@@ -51,7 +51,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0], index: num
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
-      className={`relative flex items-center justify-between md:justify-normal w-full mb-12 last:mb-0 ${
+      className={`relative flex items-center justify-between w-full mb-12 last:mb-0 ${
         isEven ? "md:flex-row-reverse" : "md:flex-row"
       } flex-col pl-12 md:pl-0`}
     >

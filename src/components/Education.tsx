@@ -7,7 +7,7 @@ import { useState, useRef } from "react";
 const educationDetails = [
   {
     id: 1,
-    degree: "Bachelor of Information Technology (BIT) External Degree, Information Technology",
+    degree: "Bachelor of Information Technology (BIT) External Degree",
     institution: "University of Moratuwa",
     date: "Feb 2025 - Dec 2027",
     description: [
@@ -18,7 +18,7 @@ const educationDetails = [
   },
   {
     id: 2,
-    degree: "Artificial Intelligence Internship Training, Artificial Intelligence",
+    degree: "Artificial Intelligence Internship Training",
     institution: "Mars Tech Campus",
     date: "Nov 2023 - Present",
     description: [
@@ -29,7 +29,7 @@ const educationDetails = [
   },
   {
     id: 3,
-    degree: "Cyber Security Internship Training, Cyber Security",
+    degree: "Cyber Security Internship Training",
     institution: "Mars Tech Campus",
     date: "Nov 2023 - Present",
     description: [
@@ -40,7 +40,7 @@ const educationDetails = [
   },
   {
     id: 4,
-    degree: "Computer Hardware Technician (NVQ Level 4), Computer Hardware Technology/Technician",
+    degree: "Computer Hardware Technician (NVQ Level 4)",
     institution: "Insight - Mawanella Centre for Technical Training",
     date: "Oct 2023 - Apr 2025",
     description: [
@@ -62,7 +62,7 @@ function EducationCard({ edu, index }: { edu: typeof educationDetails[0], index:
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
-      className={`relative flex items-center justify-between md:justify-normal w-full mb-12 last:mb-0 ${
+      className={`relative flex items-center justify-between w-full mb-12 last:mb-0 ${
         isEven ? "md:flex-row-reverse" : "md:flex-row"
       } flex-col pl-12 md:pl-0`}
     >
