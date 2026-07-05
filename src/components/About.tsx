@@ -27,7 +27,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
       delayChildren: 0.2,
     },
   },
@@ -38,7 +38,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 50, damping: 12 },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -56,7 +56,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mb-20 text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -69,10 +69,10 @@ export default function About() {
           
           {/* Left Side: Profile & Stats */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="w-full lg:w-5/12 flex flex-col items-center gap-8"
           >
             {/* Main Image Card */}
@@ -80,7 +80,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/10 to-neonPurple/10 rounded-3xl z-0" />
               <div className="w-full h-full rounded-2xl overflow-hidden relative z-10 bg-slate-900 border border-white/5">
                 <Image
-                  src="/assets/profile.jpg"
+                  src="/assets/profile2.png"
                   alt="Abdulla Thaslim"
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -95,10 +95,10 @@ export default function About() {
               {stats.map((stat, i) => (
                 <motion.div 
                   key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1, duration: 0.5, type: "spring" }}
+                  transition={{ delay: 0.3 + i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   className="glass-panel p-4 rounded-2xl border-white/5 hover:border-neonBlue/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group"
                 >
                   <stat.icon size={28} className={`${stat.color} mb-3 group-hover:scale-110 transition-transform duration-300`} />
