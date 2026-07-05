@@ -950,6 +950,9 @@ video {
 .w-full {
   width: 100%;
 }
+.min-w-\[16px\] {
+  min-width: 16px;
+}
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1203,6 +1206,10 @@ video {
 .border-white\/5 {
   border-color: rgb(255 255 255 / 0.05);
 }
+.border-neonPurple {
+  --tw-border-opacity: 1;
+  border-color: rgb(157 78 221 / var(--tw-border-opacity, 1));
+}
 .border-l-neonPurple {
   --tw-border-opacity: 1;
   border-left-color: rgb(157 78 221 / var(--tw-border-opacity, 1));
@@ -1307,6 +1314,9 @@ video {
 .bg-white\/5 {
   background-color: rgb(255 255 255 / 0.05);
 }
+.bg-neonPurple\/70 {
+  background-color: rgb(157 78 221 / 0.7);
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -1362,6 +1372,11 @@ video {
   --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-neonPurple {
+  --tw-gradient-from: #9d4edd var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(157 78 221 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .via-\[\#0a0f1d\]\/90 {
   --tw-gradient-to: rgb(10 15 29 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(10 15 29 / 0.9) var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1382,6 +1397,10 @@ video {
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
+.via-purple-400 {
+  --tw-gradient-to: rgb(192 132 252 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #c084fc var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
 .to-cyan-400 {
   --tw-gradient-to: #22d3ee var(--tw-gradient-to-position);
 }
@@ -1399,6 +1418,9 @@ video {
 }
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+.to-neonBlue {
+  --tw-gradient-to: #00f3ff var(--tw-gradient-to-position);
 }
 .bg-clip-text {
   -webkit-background-clip: text;
@@ -1756,6 +1778,16 @@ video {
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-\[0_0_15px_rgba\(168\2c 85\2c 247\2c 0\.5\)\] {
+  --tw-shadow: 0 0 15px rgba(168,85,247,0.5);
+  --tw-shadow-colored: 0 0 15px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-\[0_0_8px_rgba\(168\2c 85\2c 247\2c 0\.8\)\] {
+  --tw-shadow: 0 0 8px rgba(168,85,247,0.8);
+  --tw-shadow-colored: 0 0 8px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1936,6 +1968,9 @@ body {
 .hover\:border-white\/20:hover {
   border-color: rgb(255 255 255 / 0.2);
 }
+.hover\:border-neonPurple\/40:hover {
+  border-color: rgb(157 78 221 / 0.4);
+}
 .hover\:bg-neonBlue\/10:hover {
   background-color: rgb(0 243 255 / 0.1);
 }
@@ -2010,6 +2045,11 @@ body {
   --tw-shadow-colored: 0 10px 30px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.hover\:shadow-\[0_10px_30px_rgba\(168\2c 85\2c 247\2c 0\.15\)\]:hover {
+  --tw-shadow: 0 10px 30px rgba(168,85,247,0.15);
+  --tw-shadow-colored: 0 10px 30px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .focus\:border-neonBlue:focus {
   --tw-border-opacity: 1;
   border-color: rgb(0 243 255 / var(--tw-border-opacity, 1));
@@ -2065,6 +2105,10 @@ body {
 .group:hover .group-hover\:text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.group:hover .group-hover\:text-neonPurple {
+  --tw-text-opacity: 1;
+  color: rgb(157 78 221 / var(--tw-text-opacity, 1));
 }
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
