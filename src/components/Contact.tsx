@@ -37,7 +37,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-[#050505]">
+    <section id="contact" className="py-24 relative overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500">
       {/* Animated Background Gradients */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div 
@@ -47,7 +47,7 @@ export default function Contact() {
             scale: [1, 1.1, 1] 
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-0 w-[40vw] h-[40vw] bg-neonBlue/10 rounded-full blur-[120px] mix-blend-screen"
+          className="absolute top-1/4 left-0 w-[40vw] h-[40vw] bg-neonBlue/5 dark:bg-neonBlue/10 rounded-full blur-[120px] mix-blend-screen transition-colors duration-500"
         />
         <motion.div 
           animate={{ 
@@ -56,7 +56,7 @@ export default function Contact() {
             scale: [1, 1.2, 1] 
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "linear", delay: 2 }}
-          className="absolute bottom-0 right-0 w-[50vw] h-[50vw] bg-neonPurple/10 rounded-full blur-[150px] mix-blend-screen"
+          className="absolute bottom-0 right-0 w-[50vw] h-[50vw] bg-neonPurple/5 dark:bg-neonPurple/10 rounded-full blur-[150px] mix-blend-screen transition-colors duration-500"
         />
       </div>
 
@@ -68,11 +68,11 @@ export default function Contact() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 transition-colors duration-500">
             Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">Touch</span>
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-neonBlue to-neonPurple mx-auto rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="mt-6 text-slate-400 max-w-2xl mx-auto text-lg">
+          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg transition-colors duration-500">
             Have a project in mind or looking to collaborate? I'm always open to discussing new opportunities and creative ideas.
           </p>
         </motion.div>
@@ -88,27 +88,27 @@ export default function Contact() {
             className="lg:col-span-5 flex flex-col gap-6"
           >
             {/* Email Card */}
-            <div className="glass-panel p-6 md:p-8 rounded-3xl border border-white/5 relative group overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="glass-panel bg-white/70 dark:bg-white/5 p-6 md:p-8 rounded-3xl border border-slate-200 dark:border-white/5 relative group overflow-hidden transition-colors duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/5 dark:from-neonBlue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-slate-900/80 border border-white/10 flex items-center justify-center text-neonBlue mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-white/10 flex items-center justify-center text-neonBlue mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-[0_0_15px_rgba(59,130,246,0.1)] dark:shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                   <Mail size={28} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Email Me</h3>
-                <p className="text-slate-400 mb-6">Drop me an email and I'll get back to you as soon as possible.</p>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-500">Email Me</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 transition-colors duration-500">Drop me an email and I'll get back to you as soon as possible.</p>
                 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a 
                     href="mailto:mt.abdulla.it@gmail.com"
-                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-neonBlue/10 hover:bg-neonBlue/20 text-neonBlue border border-neonBlue/30 rounded-xl font-medium transition-colors"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-neonBlue/5 dark:bg-neonBlue/10 hover:bg-neonBlue/10 dark:hover:bg-neonBlue/20 text-neonBlue border border-neonBlue/20 dark:border-neonBlue/30 rounded-xl font-medium transition-colors"
                   >
                     Write Message <ExternalLink size={16} />
                   </a>
                   <button 
                     onClick={handleCopyEmail}
-                    className="flex items-center justify-center gap-2 py-3 px-6 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-medium transition-colors border border-white/5 relative"
+                    className="flex items-center justify-center gap-2 py-3 px-6 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-xl font-medium transition-colors border border-slate-300 dark:border-white/5 relative"
                   >
-                    {copied ? <CheckCircle2 size={18} className="text-green-400" /> : <Copy size={18} />}
+                    {copied ? <CheckCircle2 size={18} className="text-green-500 dark:text-green-400" /> : <Copy size={18} />}
                     {copied ? "Copied!" : "Copy"}
                   </button>
                 </div>
@@ -122,15 +122,15 @@ export default function Contact() {
                 href="https://github.com/mt-abdulla-it" 
                 target="_blank" 
                 rel="noreferrer"
-                className="glass-panel p-6 rounded-3xl border border-white/5 group relative overflow-hidden flex flex-col items-center justify-center gap-4 hover:border-slate-500/50 transition-colors duration-300 text-center"
+                className="glass-panel bg-white/70 dark:bg-transparent p-6 rounded-3xl border border-slate-200 dark:border-white/5 group relative overflow-hidden flex flex-col items-center justify-center gap-4 hover:border-slate-400 dark:hover:border-slate-500/50 transition-colors duration-300 text-center"
               >
-                <div className="absolute inset-0 bg-slate-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 group-hover:text-white group-hover:bg-slate-700 transition-all duration-300">
+                <div className="absolute inset-0 bg-slate-200/50 dark:bg-slate-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-white group-hover:bg-slate-800 dark:group-hover:bg-slate-700 transition-all duration-300 border border-slate-200 dark:border-transparent">
                   <Github size={24} />
                 </div>
                 <div className="relative z-10">
-                  <span className="block text-white font-semibold">GitHub</span>
-                  <span className="text-xs text-slate-400">@mt-abdulla-it</span>
+                  <span className="block text-slate-900 dark:text-white font-semibold transition-colors duration-500">GitHub</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 transition-colors duration-500">@mt-abdulla-it</span>
                 </div>
               </a>
 
@@ -139,15 +139,15 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/mt-abdulla-it/" 
                 target="_blank" 
                 rel="noreferrer"
-                className="glass-panel p-6 rounded-3xl border border-white/5 group relative overflow-hidden flex flex-col items-center justify-center gap-4 hover:border-neonPurple/50 transition-colors duration-300 text-center"
+                className="glass-panel bg-white/70 dark:bg-transparent p-6 rounded-3xl border border-slate-200 dark:border-white/5 group relative overflow-hidden flex flex-col items-center justify-center gap-4 hover:border-neonPurple/50 transition-colors duration-300 text-center"
               >
                 <div className="absolute inset-0 bg-neonPurple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 group-hover:text-white group-hover:bg-[#0A66C2] transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(10,102,194,0.5)]">
+                <div className="relative z-10 w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-white group-hover:bg-[#0A66C2] transition-all duration-300 border border-slate-200 dark:border-transparent group-hover:shadow-[0_0_15px_rgba(10,102,194,0.5)]">
                   <Linkedin size={24} />
                 </div>
                 <div className="relative z-10">
-                  <span className="block text-white font-semibold">LinkedIn</span>
-                  <span className="text-xs text-slate-400">Let's connect</span>
+                  <span className="block text-slate-900 dark:text-white font-semibold transition-colors duration-500">LinkedIn</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 transition-colors duration-500">Let's connect</span>
                 </div>
               </a>
             </div>
@@ -161,8 +161,8 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="lg:col-span-7"
           >
-            <div className="glass-panel p-6 md:p-10 rounded-3xl border border-white/5 relative">
-              <h3 className="text-2xl font-bold text-white mb-8">Send me a message</h3>
+            <div className="glass-panel bg-white/70 dark:bg-white/5 p-6 md:p-10 rounded-3xl border border-slate-200 dark:border-white/5 relative transition-colors duration-500">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 transition-colors duration-500">Send me a message</h3>
               
               <AnimatePresence mode="wait">
                 {submitted ? (
@@ -173,10 +173,10 @@ export default function Contact() {
                     className="flex flex-col items-center justify-center py-12 text-center h-[380px]"
                   >
                     <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mb-6">
-                      <CheckCircle2 size={40} className="text-green-400" />
+                      <CheckCircle2 size={40} className="text-green-500 dark:text-green-400" />
                     </div>
-                    <h4 className="text-2xl font-bold text-white mb-2">Message Sent!</h4>
-                    <p className="text-slate-400">Thank you for reaching out. I'll get back to you soon.</p>
+                    <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-500">Message Sent!</h4>
+                    <p className="text-slate-600 dark:text-slate-400 transition-colors duration-500">Thank you for reaching out. I'll get back to you soon.</p>
                   </motion.div>
                 ) : (
                   <motion.form 
@@ -188,7 +188,7 @@ export default function Contact() {
                   >
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="relative group">
-                        <label htmlFor="name" className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'name' || formData.name ? '-top-2.5 text-xs bg-[#0a0a0a] px-2 text-neonBlue rounded' : 'top-3.5 text-sm text-slate-400'}`}>Full Name</label>
+                        <label htmlFor="name" className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'name' || formData.name ? '-top-2.5 text-xs bg-white dark:bg-[#0a0a0a] px-2 text-neonBlue rounded' : 'top-3.5 text-sm text-slate-500 dark:text-slate-400'}`}>Full Name</label>
                         <input
                           type="text"
                           id="name"
@@ -198,11 +198,11 @@ export default function Contact() {
                           onChange={handleChange}
                           onFocus={() => setFocusedField('name')}
                           onBlur={() => setFocusedField(null)}
-                          className="w-full bg-slate-900/30 border border-slate-700/80 text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 transition-all shadow-inner"
+                          className="w-full bg-white dark:bg-slate-900/30 border border-slate-300 dark:border-slate-700/80 text-slate-900 dark:text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 transition-all shadow-sm dark:shadow-inner"
                         />
                       </div>
                       <div className="relative group">
-                        <label htmlFor="email" className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'email' || formData.email ? '-top-2.5 text-xs bg-[#0a0a0a] px-2 text-neonBlue rounded' : 'top-3.5 text-sm text-slate-400'}`}>Email Address</label>
+                        <label htmlFor="email" className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'email' || formData.email ? '-top-2.5 text-xs bg-white dark:bg-[#0a0a0a] px-2 text-neonBlue rounded' : 'top-3.5 text-sm text-slate-500 dark:text-slate-400'}`}>Email Address</label>
                         <input
                           type="email"
                           id="email"
@@ -212,13 +212,13 @@ export default function Contact() {
                           onChange={handleChange}
                           onFocus={() => setFocusedField('email')}
                           onBlur={() => setFocusedField(null)}
-                          className="w-full bg-slate-900/30 border border-slate-700/80 text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 transition-all shadow-inner"
+                          className="w-full bg-white dark:bg-slate-900/30 border border-slate-300 dark:border-slate-700/80 text-slate-900 dark:text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 transition-all shadow-sm dark:shadow-inner"
                         />
                       </div>
                     </div>
                     
                     <div className="relative group">
-                      <label htmlFor="subject" className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'subject' || formData.subject ? '-top-2.5 text-xs bg-[#0a0a0a] px-2 text-neonBlue rounded' : 'top-3.5 text-sm text-slate-400'}`}>Subject</label>
+                      <label htmlFor="subject" className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'subject' || formData.subject ? '-top-2.5 text-xs bg-white dark:bg-[#0a0a0a] px-2 text-neonBlue rounded' : 'top-3.5 text-sm text-slate-500 dark:text-slate-400'}`}>Subject</label>
                       <input
                         type="text"
                         id="subject"
@@ -228,12 +228,12 @@ export default function Contact() {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('subject')}
                         onBlur={() => setFocusedField(null)}
-                        className="w-full bg-slate-900/30 border border-slate-700/80 text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 transition-all shadow-inner"
+                        className="w-full bg-white dark:bg-slate-900/30 border border-slate-300 dark:border-slate-700/80 text-slate-900 dark:text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 transition-all shadow-sm dark:shadow-inner"
                       />
                     </div>
                     
                     <div className="relative group">
-                      <label htmlFor="message" className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'message' || formData.message ? '-top-2.5 text-xs bg-[#0a0a0a] px-2 text-neonBlue rounded' : 'top-3.5 text-sm text-slate-400'}`}>Message</label>
+                      <label htmlFor="message" className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'message' || formData.message ? '-top-2.5 text-xs bg-white dark:bg-[#0a0a0a] px-2 text-neonBlue rounded' : 'top-3.5 text-sm text-slate-500 dark:text-slate-400'}`}>Message</label>
                       <textarea
                         id="message"
                         name="message"
@@ -243,7 +243,7 @@ export default function Contact() {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('message')}
                         onBlur={() => setFocusedField(null)}
-                        className="w-full bg-slate-900/30 border border-slate-700/80 text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 transition-all resize-none shadow-inner"
+                        className="w-full bg-white dark:bg-slate-900/30 border border-slate-300 dark:border-slate-700/80 text-slate-900 dark:text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue/50 transition-all resize-none shadow-sm dark:shadow-inner"
                       ></textarea>
                     </div>
                     
