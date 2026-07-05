@@ -92,7 +92,7 @@ function TiltCard({ cert, onClick }: { cert: typeof certificates[0], onClick: ()
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="relative w-full lg:w-[380px] shrink-0 glass-panel rounded-2xl cursor-pointer group transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] border border-slate-700/50 hover:border-neonBlue/80"
+      className="relative w-full lg:w-[380px] shrink-0 glass-panel bg-white/70 dark:bg-white/5 rounded-2xl cursor-pointer group transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] border border-slate-200 dark:border-slate-700/50 hover:border-neonBlue hover:dark:border-neonBlue/80"
       onClick={onClick}
       role="button"
       aria-label={`View certificate for ${cert.title}`}
@@ -101,40 +101,40 @@ function TiltCard({ cert, onClick }: { cert: typeof certificates[0], onClick: ()
     >
       <div 
         style={{ transform: "translateZ(40px)" }}
-        className="aspect-[4/3] bg-slate-900/80 relative flex items-center justify-center rounded-t-2xl overflow-hidden"
+        className="aspect-[4/3] bg-slate-200 dark:bg-slate-900/80 relative flex items-center justify-center rounded-t-2xl overflow-hidden border-b border-slate-200 dark:border-white/5"
       >
         {cert.image ? (
-          <img src={cert.image} alt={cert.title} loading="lazy" className="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110 pointer-events-none" />
+          <img src={cert.image} alt={cert.title} loading="lazy" className="object-cover w-full h-full opacity-90 dark:opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110 pointer-events-none" />
         ) : (
           <div className="text-slate-500 font-medium">Image Placeholder</div>
         )}
-        <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+        <div className="absolute inset-0 bg-white/40 dark:bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
           <div className="bg-neonBlue/20 p-4 rounded-full border border-neonBlue/50 shadow-[0_0_15px_rgba(59,130,246,0.5)] transform scale-50 group-hover:scale-100 transition-transform duration-300">
             <ZoomIn className="text-neonBlue w-8 h-8" />
           </div>
         </div>
         
         {/* Category Badge */}
-        <div className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md border border-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full text-slate-300 group-hover:border-neonPurple/50 group-hover:text-white transition-colors">
+        <div className="absolute top-4 right-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-300 dark:border-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full text-slate-700 dark:text-slate-300 group-hover:border-neonPurple/50 group-hover:text-neonPurple dark:group-hover:text-white transition-colors">
           {cert.category}
         </div>
       </div>
       
       <div 
         style={{ transform: "translateZ(30px)" }}
-        className="p-6 bg-slate-800/60 rounded-b-2xl backdrop-blur-md relative flex flex-col h-[180px]"
+        className="p-6 bg-white/40 dark:bg-slate-800/60 rounded-b-2xl backdrop-blur-md relative flex flex-col h-[180px]"
       >
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neonBlue transition-colors line-clamp-2 min-h-[3.5rem] pointer-events-none">{cert.title}</h3>
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-neonBlue transition-colors line-clamp-2 min-h-[3.5rem] pointer-events-none">{cert.title}</h3>
         
         <div className="flex justify-between items-center text-sm mb-auto pointer-events-none">
-          <span className="font-medium text-neonPurple">{cert.issuer}</span>
-          <span className="text-slate-400">{cert.date}</span>
+          <span className="font-semibold text-neonPurple">{cert.issuer}</span>
+          <span className="text-slate-500 dark:text-slate-400 font-medium">{cert.date}</span>
         </div>
         
         {/* View Button */}
-        <button className="w-full py-2.5 mt-4 rounded-lg bg-slate-700/50 hover:bg-neonBlue/10 border border-slate-600 hover:border-neonBlue/50 text-white font-medium flex items-center justify-center gap-2 transition-all group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] pointer-events-none">
+        <button className="w-full py-2.5 mt-4 rounded-lg bg-slate-100 dark:bg-slate-700/50 hover:bg-neonBlue/10 dark:hover:bg-neonBlue/10 border border-slate-300 dark:border-slate-600 hover:border-neonBlue/50 text-slate-800 dark:text-white font-medium flex items-center justify-center gap-2 transition-all group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] pointer-events-none">
           <span>View Certificate</span>
-          <ExternalLink size={16} className="text-slate-400 group-hover:text-neonBlue transition-colors" />
+          <ExternalLink size={16} className="text-slate-500 dark:text-slate-400 group-hover:text-neonBlue transition-colors" />
         </button>
       </div>
     </motion.div>
