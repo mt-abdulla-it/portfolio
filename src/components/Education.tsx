@@ -67,7 +67,7 @@ function EducationCard({ edu, index }: { edu: typeof educationDetails[0], index:
       } flex-col pl-12 md:pl-0`}
     >
       {/* Timeline Dot */}
-      <div className="absolute left-6 md:left-1/2 top-6 md:top-8 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-900 border-2 border-neonPurple shadow-[0_0_15px_rgba(168,85,247,0.5)] z-20 flex items-center justify-center transition-transform hover:scale-125 duration-300">
+      <div className="absolute left-6 md:left-1/2 top-6 md:top-8 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-slate-900 border-2 border-neonPurple shadow-[0_0_15px_rgba(168,85,247,0.3)] dark:shadow-[0_0_15px_rgba(168,85,247,0.5)] z-20 flex items-center justify-center transition-transform hover:scale-125 duration-300">
         <div className="w-3 h-3 rounded-full bg-neonBlue animate-pulse" />
       </div>
 
@@ -78,26 +78,26 @@ function EducationCard({ edu, index }: { edu: typeof educationDetails[0], index:
       <div className="w-full md:w-5/12">
         <div 
           onClick={() => setIsExpanded(!isExpanded)}
-          className="glass-panel border border-white/5 rounded-2xl p-6 md:p-8 hover:border-neonPurple/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] transition-all duration-300 group cursor-pointer"
+          className="glass-panel bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-neonPurple/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] transition-all duration-300 group cursor-pointer"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-neonPurple transition-colors">
+              <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white group-hover:text-neonPurple dark:group-hover:text-neonPurple transition-colors">
                 {edu.degree}
               </h3>
-              <div className="flex items-center gap-2 text-slate-300 mt-2 font-medium">
+              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300 mt-2 font-medium">
                 <GraduationCap size={16} className="text-neonBlue min-w-[16px]" />
                 <span>{edu.institution}</span>
               </div>
             </div>
             <div className="flex flex-col items-start sm:items-end gap-2 shrink-0">
-              <span className="inline-block px-3 py-1 bg-white/10 text-slate-300 text-xs font-mono rounded-full border border-white/5 whitespace-nowrap">
+              <span className="inline-block px-3 py-1 bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300 text-xs font-mono rounded-full border border-slate-300 dark:border-white/5 whitespace-nowrap">
                 {edu.date}
               </span>
               <motion.div 
                 animate={{ rotate: isExpanded ? 180 : 0 }} 
                 transition={{ duration: 0.3 }}
-                className="text-slate-400 group-hover:text-neonPurple"
+                className="text-slate-500 dark:text-slate-400 group-hover:text-neonPurple"
               >
                 <ChevronDown size={20} />
               </motion.div>
@@ -113,9 +113,9 @@ function EducationCard({ edu, index }: { edu: typeof educationDetails[0], index:
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <ul className="space-y-3 mt-6 pt-4 border-t border-white/10">
+                <ul className="space-y-3 mt-6 pt-4 border-t border-slate-200 dark:border-white/10">
                   {edu.description.map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-slate-400 text-sm md:text-base leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-neonPurple/70 shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
                       <span>{point}</span>
                     </li>
@@ -138,11 +138,11 @@ export default function Education() {
   });
 
   return (
-    <section className="py-24 bg-[#050505] relative overflow-hidden" id="education">
+    <section className="py-24 bg-slate-50 dark:bg-[#050505] relative overflow-hidden transition-colors duration-500" id="education">
       {/* Background Ornaments */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-neonPurple/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-neonBlue/10 rounded-full blur-[150px]" />
+        <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-neonPurple/5 dark:bg-neonPurple/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-neonBlue/5 dark:bg-neonBlue/10 rounded-full blur-[150px]" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -153,17 +153,17 @@ export default function Education() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 transition-colors duration-500">
             My <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonPurple to-neonBlue">Education</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto transition-colors duration-500">
             A chronological timeline of my academic background and professional training.
           </p>
         </motion.div>
 
         <div ref={containerRef} className="relative max-w-5xl mx-auto py-10">
           {/* Central Timeline Line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-800 -translate-x-1/2 rounded-full overflow-hidden">
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-300 dark:bg-slate-800 -translate-x-1/2 rounded-full overflow-hidden transition-colors duration-500">
             {/* Active glowing indicator that follows scroll */}
             <motion.div 
               className="absolute top-0 w-full bg-gradient-to-b from-neonPurple via-purple-400 to-neonBlue h-full"
