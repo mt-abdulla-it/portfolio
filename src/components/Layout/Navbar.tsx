@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "glass-panel bg-white/70 dark:bg-slate-900/50 py-3" : "bg-transparent py-5"
+        scrolled ? "glass-panel bg-white/80 dark:bg-slate-900/50 py-3 shadow-sm dark:shadow-none border-b border-slate-200/50 dark:border-transparent" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -43,9 +43,10 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-neonBlue dark:hover:text-white transition-colors"
+              className="relative group text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-neonBlue dark:hover:text-white transition-colors"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neonBlue transition-all duration-300 group-hover:w-full rounded-full"></span>
             </a>
           ))}
           <div className="flex items-center gap-4 ml-4 border-l border-slate-300 dark:border-slate-700 pl-4">

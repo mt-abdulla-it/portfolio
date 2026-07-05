@@ -93,7 +93,7 @@ function TiltCard({ cert, onClick }: { cert: typeof certificates[0], onClick: ()
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="relative w-full lg:w-[380px] shrink-0 glass-panel bg-white/70 dark:bg-white/5 rounded-2xl cursor-pointer group transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] border border-slate-200 dark:border-slate-700/50 hover:border-neonBlue hover:dark:border-neonBlue/80"
+      className="relative w-full shrink-0 bg-white dark:bg-white/5 rounded-2xl cursor-pointer group transition-all duration-300 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] border border-slate-200 dark:border-slate-700/50 hover:border-blue-300 hover:dark:border-neonBlue/80"
       onClick={onClick}
       role="button"
       aria-label={`View certificate for ${cert.title}`}
@@ -102,40 +102,40 @@ function TiltCard({ cert, onClick }: { cert: typeof certificates[0], onClick: ()
     >
       <div 
         style={{ transform: "translateZ(40px)" }}
-        className="aspect-[4/3] bg-slate-200 dark:bg-slate-900/80 relative flex items-center justify-center rounded-t-2xl overflow-hidden border-b border-slate-200 dark:border-white/5"
+        className="aspect-[4/3] bg-slate-50 dark:bg-slate-900/80 relative flex items-center justify-center rounded-t-2xl overflow-hidden border-b border-slate-200 dark:border-white/5"
       >
         {cert.image ? (
-          <img src={cert.image} alt={cert.title} loading="lazy" className="object-cover w-full h-full opacity-90 dark:opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110 pointer-events-none" />
+          <img src={cert.image} alt={cert.title} loading="lazy" className="object-cover w-full h-full opacity-95 dark:opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110 pointer-events-none" />
         ) : (
           <div className="text-slate-500 font-medium">Image Placeholder</div>
         )}
         <div className="absolute inset-0 bg-white/40 dark:bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-          <div className="bg-neonBlue/20 p-4 rounded-full border border-neonBlue/50 shadow-[0_0_15px_rgba(59,130,246,0.5)] transform scale-50 group-hover:scale-100 transition-transform duration-300">
-            <ZoomIn className="text-neonBlue w-8 h-8" />
+          <div className="bg-blue-500/20 dark:bg-neonBlue/20 p-4 rounded-full border border-blue-500/50 dark:border-neonBlue/50 shadow-[0_0_15px_rgba(59,130,246,0.5)] transform scale-50 group-hover:scale-100 transition-transform duration-300">
+            <ZoomIn className="text-blue-600 dark:text-neonBlue w-8 h-8" />
           </div>
         </div>
         
         {/* Category Badge */}
-        <div className="absolute top-4 right-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-300 dark:border-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full text-slate-700 dark:text-slate-300 group-hover:border-neonPurple/50 group-hover:text-neonPurple dark:group-hover:text-white transition-colors">
+        <div className="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full text-slate-700 dark:text-slate-300 group-hover:border-blue-300 dark:group-hover:border-neonPurple/50 group-hover:text-blue-600 dark:group-hover:text-white transition-colors shadow-sm">
           {cert.category}
         </div>
       </div>
       
       <div 
         style={{ transform: "translateZ(30px)" }}
-        className="p-6 bg-white/40 dark:bg-slate-800/60 rounded-b-2xl backdrop-blur-md relative flex flex-col h-[180px]"
+        className="p-6 bg-white dark:bg-slate-800/60 rounded-b-2xl relative flex flex-col h-[180px]"
       >
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-neonBlue transition-colors line-clamp-2 min-h-[3.5rem] pointer-events-none">{cert.title}</h3>
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-neonBlue transition-colors line-clamp-2 min-h-[3.5rem] pointer-events-none">{cert.title}</h3>
         
         <div className="flex justify-between items-center text-sm mb-auto pointer-events-none">
-          <span className="font-semibold text-neonPurple">{cert.issuer}</span>
+          <span className="font-semibold text-blue-600 dark:text-neonPurple">{cert.issuer}</span>
           <span className="text-slate-500 dark:text-slate-400 font-medium">{cert.date}</span>
         </div>
         
         {/* View Button */}
-        <button className="w-full py-2.5 mt-4 rounded-lg bg-slate-100 dark:bg-slate-700/50 hover:bg-neonBlue/10 dark:hover:bg-neonBlue/10 border border-slate-300 dark:border-slate-600 hover:border-neonBlue/50 text-slate-800 dark:text-white font-medium flex items-center justify-center gap-2 transition-all group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] pointer-events-none">
+        <button className="w-full py-2.5 mt-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 hover:bg-blue-50 dark:hover:bg-neonBlue/10 border border-slate-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-neonBlue/50 text-slate-700 dark:text-white font-medium flex items-center justify-center gap-2 transition-all group-hover:shadow-[0_0_15px_rgba(59,130,246,0.1)] pointer-events-none">
           <span>View Certificate</span>
-          <ExternalLink size={16} className="text-slate-500 dark:text-slate-400 group-hover:text-neonBlue transition-colors" />
+          <ExternalLink size={16} className="text-slate-400 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-neonBlue transition-colors" />
         </button>
       </div>
     </motion.div>
@@ -194,7 +194,6 @@ export default function Certificates() {
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
   });
 
   const handleNext = (e: React.MouseEvent) => {
@@ -211,37 +210,37 @@ export default function Certificates() {
     }
   };
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedIdx === null) return;
-      if (e.key === "ArrowRight") setSelectedIdx((selectedIdx + 1) % certificates.length);
-      if (e.key === "ArrowLeft") setSelectedIdx((selectedIdx - 1 + certificates.length) % certificates.length);
-      if (e.key === "Escape") setSelectedIdx(null);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIdx]);
+  const MarqueeTrack = ({ items, direction, duration, rowIndex }: { items: typeof certificates, direction: 'left' | 'right', duration: string, rowIndex: number }) => {
+    const duplicatedItems = [...items, ...items];
+    return (
+      <div className="flex w-full overflow-hidden group py-4">
+        <div 
+          className={`flex gap-6 lg:gap-8 pr-6 lg:pr-8 w-max ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'} group-hover:[animation-play-state:paused]`}
+          style={{ '--duration': duration } as React.CSSProperties}
+        >
+          {duplicatedItems.map((cert, idx) => {
+            const originalIndex = certificates.findIndex(c => c.id === cert.id);
+            return (
+              <div key={`${cert.id}-${idx}`} className="w-[300px] md:w-[380px] shrink-0">
+                <TiltCard cert={cert} onClick={() => setSelectedIdx(originalIndex)} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
+  const { scrollYProgress: parallaxProgress } = useScroll();
+  const yParallax = useTransform(parallaxProgress, [0, 1], [0, -40]);
 
   return (
-    <section id="certificates" className="py-24 relative bg-slate-50 dark:bg-[#0a0f1d] overflow-hidden transition-colors duration-500">
+    <section id="certificates" className="pt-12 pb-0 relative bg-slate-50 dark:bg-[#0a0f1d] overflow-hidden transition-colors duration-500">
       {/* Scroll Progress Indicator */}
       <motion.div 
         className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neonBlue to-neonPurple z-50 origin-left"
         style={{ scaleX }}
       />
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
-      `}} />
 
       <ParticlesBackground />
       
@@ -256,7 +255,7 @@ export default function Certificates() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-20 text-center"
+          className="mb-16 md:mb-20 text-center"
         >
           <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-600 to-slate-400 dark:from-white dark:via-slate-200 dark:to-slate-500 mb-6 tracking-tight uppercase drop-shadow-sm transition-colors duration-500">
             CERTIFICATES
@@ -268,41 +267,17 @@ export default function Certificates() {
         </motion.div>
       </div>
 
-      {/* Clean Native Horizontal Scroll */}
-      <div className="w-full pb-20 pt-10 relative">
+      {/* Clean Infinite Marquee Scroll without Parallax to remove bottom gap */}
+      <motion.div className="w-full pb-0 relative flex flex-col gap-2">
         
-        {/* Deep gradient fades for edges (Desktop only) */}
-        <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
-        <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
+        {/* Deep gradient fades for edges */}
+        <div className="absolute top-0 bottom-0 left-0 w-24 md:w-48 bg-gradient-to-r from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-24 md:w-48 bg-gradient-to-l from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
         
-        {/* Container */}
-        <div 
-          className="flex gap-6 lg:gap-8 overflow-x-auto px-6 lg:px-32 pb-12 snap-x snap-mandatory no-scrollbar items-center"
-        >
-          {certificates.map((cert, index) => (
-            <motion.div 
-              key={cert.id}
-              className="snap-center shrink-0 w-[90vw] sm:w-[400px] lg:w-[420px]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: (index % 5) * 0.1, duration: 0.5 }}
-            >
-              <TiltCard 
-                cert={cert} 
-                onClick={() => setSelectedIdx(index)} 
-              />
-            </motion.div>
-          ))}
-        </div>
+        {/* Single Marquee Track */}
+        <MarqueeTrack items={certificates} direction="left" duration="150s" rowIndex={0} />
         
-        <div className="text-center mt-4">
-          <p className="text-slate-500 dark:text-slate-400 text-sm font-medium animate-pulse flex items-center justify-center gap-2">
-            <span>Swipe to explore</span>
-            <ChevronRight size={16} />
-          </p>
-        </div>
-      </div>
+      </motion.div>
 
       {/* Lightbox Modal */}
       <AnimatePresence mode="wait">

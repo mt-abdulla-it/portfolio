@@ -56,8 +56,8 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0], index: num
       } flex-col pl-12 md:pl-0`}
     >
       {/* Timeline Dot */}
-      <div className="absolute left-6 md:left-1/2 top-6 md:top-8 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-slate-900 border-2 border-neonBlue shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:shadow-[0_0_15px_rgba(59,130,246,0.5)] z-20 flex items-center justify-center transition-transform hover:scale-125 duration-300">
-        <div className="w-3 h-3 rounded-full bg-neonPurple animate-pulse" />
+      <div className="absolute left-6 md:left-1/2 top-6 md:top-8 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-slate-900 border-2 border-blue-500 dark:border-neonBlue shadow-sm dark:shadow-[0_0_15px_rgba(59,130,246,0.5)] z-20 flex items-center justify-center transition-transform hover:scale-125 duration-300">
+        <div className="w-3 h-3 rounded-full bg-indigo-500 dark:bg-neonPurple animate-pulse" />
       </div>
 
       {/* Empty Space for Desktop Alternate Layout */}
@@ -67,11 +67,11 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0], index: num
       <div className="w-full md:w-5/12">
         <div 
           onClick={() => setIsExpanded(!isExpanded)}
-          className="glass-panel bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-neonBlue/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300 group cursor-pointer"
+          className="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-blue-300 dark:hover:border-neonBlue/40 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300 group cursor-pointer"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-neonBlue dark:group-hover:text-neonBlue transition-colors">
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-neonBlue transition-colors">
                 {exp.title}
               </h3>
               <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300 mt-1 font-medium">
@@ -127,11 +127,11 @@ export default function Experience() {
   });
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-[#050505] relative overflow-hidden transition-colors duration-500" id="experience">
+    <section className="py-12 bg-slate-50 dark:bg-[#050505] relative overflow-hidden transition-colors duration-500" id="experience">
       {/* Background Ornaments */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-neonBlue/5 dark:bg-neonBlue/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-neonPurple/5 dark:bg-neonPurple/10 rounded-full blur-[150px]" />
+        <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-blue-500/5 dark:bg-neonBlue/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-indigo-500/5 dark:bg-neonPurple/10 rounded-full blur-[150px]" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -143,7 +143,7 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 transition-colors duration-500">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">Experience</span>
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-neonBlue dark:to-neonPurple">Experience</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto transition-colors duration-500">
             A timeline of my professional journey, roles, and accomplishments. Click on any role to view details.

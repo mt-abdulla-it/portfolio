@@ -44,7 +44,7 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500">
+    <section id="about" className="py-12 relative overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500">
       {/* Background Ornaments */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-neonPurple/5 dark:bg-neonPurple/10 rounded-full blur-[150px]" />
@@ -67,15 +67,61 @@ export default function About() {
 
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-12 items-center lg:items-start">
           
-          {/* Left Side: Profile & Stats */}
+          {/* Left Side: Content */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="w-full lg:w-7/12 flex flex-col justify-center"
+          >
+            <motion.div variants={itemVariants} className="mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4 leading-tight transition-colors duration-500">
+                I am Abdulla Thaslim, a passionate <br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-cyan-500 dark:to-cyan-400">Full Stack Developer</span>
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed font-light transition-colors duration-500">
+                focused on building modern, scalable, and secure web applications. 
+                I bridge the gap between elegant user interfaces and robust backend architectures to deliver complete digital solutions.
+              </p>
+            </motion.div>
+            
+            <motion.div variants={itemVariants} className="mb-10">
+              <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2 transition-colors duration-500">
+                <Zap size={20} className="text-neonPurple" />
+                Core Highlights
+              </h4>
+              <div className="grid md:grid-cols-2 gap-x-4 gap-y-4">
+                {highlights.map((highlight, idx) => (
+                  <div key={idx} className="flex items-start gap-3 group">
+                    <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-neonBlue/10 flex items-center justify-center border border-neonBlue/30 group-hover:bg-neonBlue/20 dark:group-hover:bg-neonBlue/30 transition-colors">
+                      <CheckCircle2 size={12} className="text-neonBlue" />
+                    </div>
+                    <span className="text-slate-700 dark:text-slate-300 font-medium group-hover:text-neonBlue transition-colors">{highlight}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <div className="glass-panel bg-white/70 dark:bg-white/5 relative p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-transparent border-l-4 border-l-neonPurple bg-gradient-to-r from-neonPurple/5 to-transparent hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-shadow duration-300">
+                <Sparkles size={24} className="absolute top-4 right-4 text-neonPurple/40" />
+                <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-200 italic font-light leading-relaxed relative z-10 transition-colors duration-500">
+                  "I enjoy turning complex problems into simple, efficient, and user-friendly digital solutions."
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Side: Profile & Stats */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="w-full lg:w-5/12 flex flex-col items-center gap-8"
           >
-            {/* Main Image Card */}
+            {/* Image Container */}
             <div className="relative w-full max-w-sm aspect-[4/5] glass-panel bg-white/70 dark:bg-white/5 rounded-3xl p-3 border-slate-200 dark:border-white/10 group shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:shadow-[0_0_50px_rgba(168,85,247,0.2)] transition-shadow duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/10 to-neonPurple/10 rounded-3xl z-0" />
               <div className="w-full h-full rounded-2xl overflow-hidden relative z-10 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-white/5">
@@ -109,54 +155,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right Side: Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="w-full lg:w-7/12 flex flex-col justify-center"
-          >
-            <motion.div variants={itemVariants} className="mb-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4 leading-tight transition-colors duration-500">
-                I am Abdulla Thaslim, a passionate <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-cyan-500 dark:to-cyan-400">Full Stack Developer</span>
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed font-light transition-colors duration-500">
-                focused on building modern, scalable, and secure web applications. 
-                I bridge the gap between elegant user interfaces and robust backend architectures to deliver complete digital solutions.
-              </p>
-            </motion.div>
-            
-            <motion.div variants={itemVariants} className="mb-10">
-              <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2 transition-colors duration-500">
-                <Zap size={20} className="text-neonPurple" />
-                Core Highlights
-              </h4>
-              <div className="grid md:grid-cols-2 gap-x-4 gap-y-4">
-                {highlights.map((highlight, idx) => (
-                  <div key={idx} className="flex items-start gap-3 group">
-                    <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-neonBlue/10 flex items-center justify-center border border-neonBlue/30 group-hover:bg-neonBlue/20 dark:group-hover:bg-neonBlue/30 transition-colors">
-                      <CheckCircle2 size={12} className="text-neonBlue" />
-                    </div>
-                    <span className="text-slate-700 dark:text-slate-300 text-sm md:text-base group-hover:text-slate-900 dark:group-hover:text-white transition-colors leading-tight pt-0.5">
-                      {highlight}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <div className="glass-panel bg-white/70 dark:bg-white/5 relative p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-transparent border-l-4 border-l-neonPurple bg-gradient-to-r from-neonPurple/5 to-transparent hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-shadow duration-300">
-                <Sparkles size={24} className="absolute top-4 right-4 text-neonPurple/40" />
-                <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-200 italic font-light leading-relaxed relative z-10 transition-colors duration-500">
-                  "I enjoy turning complex problems into simple, efficient, and user-friendly digital solutions."
-                </p>
-              </div>
-            </motion.div>
-
-          </motion.div>
         </div>
       </div>
     </section>

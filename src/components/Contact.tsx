@@ -37,7 +37,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500">
+    <section id="contact" className="py-12 relative overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500">
       {/* Animated Background Gradients */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div 
@@ -88,10 +88,10 @@ export default function Contact() {
             className="lg:col-span-5 flex flex-col gap-6"
           >
             {/* Email Card */}
-            <div className="glass-panel bg-white/70 dark:bg-white/5 p-6 md:p-8 rounded-3xl border border-slate-200 dark:border-white/5 relative group overflow-hidden transition-colors duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/5 dark:from-neonBlue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl border border-slate-200 dark:border-white/5 relative group overflow-hidden transition-colors duration-500 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-none hover:border-blue-300 dark:hover:border-neonBlue/40">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 dark:from-neonBlue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-white/10 flex items-center justify-center text-neonBlue mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-[0_0_15px_rgba(59,130,246,0.1)] dark:shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-white/10 flex items-center justify-center text-blue-600 dark:text-neonBlue mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-[0_0_15px_rgba(59,130,246,0.1)] dark:shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                   <Mail size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-500">Email Me</h3>
@@ -100,15 +100,15 @@ export default function Contact() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a 
                     href="mailto:mt.abdulla.it@gmail.com"
-                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-neonBlue/5 dark:bg-neonBlue/10 hover:bg-neonBlue/10 dark:hover:bg-neonBlue/20 text-neonBlue border border-neonBlue/20 dark:border-neonBlue/30 rounded-xl font-medium transition-colors"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-blue-50 dark:bg-neonBlue/10 hover:bg-blue-100 dark:hover:bg-neonBlue/20 text-blue-700 dark:text-neonBlue border border-blue-200 dark:border-neonBlue/30 rounded-xl font-medium transition-colors"
                   >
                     Write Message <ExternalLink size={16} />
                   </a>
                   <button 
                     onClick={handleCopyEmail}
-                    className="flex items-center justify-center gap-2 py-3 px-6 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-xl font-medium transition-colors border border-slate-300 dark:border-white/5 relative"
+                    className="flex items-center justify-center gap-2 py-3 px-6 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-xl font-medium transition-colors border border-slate-200 dark:border-white/5 relative"
                   >
-                    {copied ? <CheckCircle2 size={18} className="text-green-500 dark:text-green-400" /> : <Copy size={18} />}
+                    {copied ? <CheckCircle2 size={18} className="text-green-600 dark:text-green-400" /> : <Copy size={18} />}
                     {copied ? "Copied!" : "Copy"}
                   </button>
                 </div>
@@ -122,15 +122,15 @@ export default function Contact() {
                 href="https://github.com/mt-abdulla-it" 
                 target="_blank" 
                 rel="noreferrer"
-                className="glass-panel bg-white/70 dark:bg-transparent p-6 rounded-3xl border border-slate-200 dark:border-white/5 group relative overflow-hidden flex flex-col items-center justify-center gap-4 hover:border-slate-400 dark:hover:border-slate-500/50 transition-colors duration-300 text-center"
+                className="bg-white dark:bg-transparent p-6 rounded-3xl border border-slate-200 dark:border-white/5 group relative overflow-hidden flex flex-col items-center justify-center gap-4 hover:border-slate-400 dark:hover:border-slate-500/50 transition-colors duration-300 text-center shadow-sm hover:shadow-md dark:hover:shadow-none"
               >
-                <div className="absolute inset-0 bg-slate-200/50 dark:bg-slate-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-white group-hover:bg-slate-800 dark:group-hover:bg-slate-700 transition-all duration-300 border border-slate-200 dark:border-transparent">
+                <div className="absolute inset-0 bg-slate-100 dark:bg-slate-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 group-hover:text-white group-hover:bg-slate-900 dark:group-hover:bg-slate-700 transition-all duration-300 border border-slate-200 dark:border-transparent">
                   <Github size={24} />
                 </div>
                 <div className="relative z-10">
                   <span className="block text-slate-900 dark:text-white font-semibold transition-colors duration-500">GitHub</span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 transition-colors duration-500">@mt-abdulla-it</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 transition-colors duration-500">Explore Projects</span>
                 </div>
               </a>
 
@@ -139,10 +139,10 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/mt-abdulla-it/" 
                 target="_blank" 
                 rel="noreferrer"
-                className="glass-panel bg-white/70 dark:bg-transparent p-6 rounded-3xl border border-slate-200 dark:border-white/5 group relative overflow-hidden flex flex-col items-center justify-center gap-4 hover:border-neonPurple/50 transition-colors duration-300 text-center"
+                className="bg-white dark:bg-transparent p-6 rounded-3xl border border-slate-200 dark:border-white/5 group relative overflow-hidden flex flex-col items-center justify-center gap-4 hover:border-blue-300 dark:hover:border-neonPurple/50 transition-colors duration-300 text-center shadow-sm hover:shadow-md dark:hover:shadow-none"
               >
-                <div className="absolute inset-0 bg-neonPurple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-white group-hover:bg-[#0A66C2] transition-all duration-300 border border-slate-200 dark:border-transparent group-hover:shadow-[0_0_15px_rgba(10,102,194,0.5)]">
+                <div className="absolute inset-0 bg-blue-50 dark:bg-neonPurple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 group-hover:text-white group-hover:bg-[#0A66C2] transition-all duration-300 border border-slate-200 dark:border-transparent group-hover:shadow-[0_0_15px_rgba(10,102,194,0.5)]">
                   <Linkedin size={24} />
                 </div>
                 <div className="relative z-10">
@@ -161,7 +161,7 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="lg:col-span-7"
           >
-            <div className="glass-panel bg-white/70 dark:bg-white/5 p-6 md:p-10 rounded-3xl border border-slate-200 dark:border-white/5 relative transition-colors duration-500">
+            <div className="bg-white dark:bg-white/5 p-6 md:p-10 rounded-3xl border border-slate-200 dark:border-white/5 relative transition-colors duration-500 shadow-sm">
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 transition-colors duration-500">Send me a message</h3>
               
               <AnimatePresence mode="wait">

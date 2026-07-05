@@ -71,7 +71,7 @@ export default function Hero() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500" 
+      className="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden bg-slate-50 dark:bg-[#050505] transition-colors duration-500" 
       id="home"
     >
       {/* Dynamic Cursor Glow */}
@@ -91,24 +91,24 @@ export default function Hero() {
           animate={{ 
             scale: [1, 1.2, 1],
             rotate: [0, 90, 0],
-            opacity: [0.1, 0.2, 0.1]
+            opacity: [0.05, 0.1, 0.05]
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-neonBlue/20 rounded-full blur-[120px]" 
+          className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-neonBlue/40 dark:bg-neonBlue/20 rounded-full blur-[120px]" 
         />
         <motion.div 
           animate={{ 
             scale: [1, 1.5, 1],
             rotate: [0, -90, 0],
-            opacity: [0.1, 0.2, 0.1]
+            opacity: [0.05, 0.1, 0.05]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-neonPurple/20 rounded-full blur-[150px]" 
+          className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-neonPurple/40 dark:bg-neonPurple/20 rounded-full blur-[150px]" 
         />
       </motion.div>
 
       <div className="container mx-auto px-6 md:px-12 z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-8">
           
           {/* Left Side: Text Content */}
           <motion.div 
@@ -119,23 +119,23 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel bg-white/70 dark:bg-white/5 border border-neonBlue/30 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel bg-white/90 dark:bg-white/5 border border-slate-200 dark:border-neonBlue/30 mb-2 shadow-sm"
             >
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neonBlue opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-neonBlue"></span>
               </span>
-              <span className="text-neonBlue font-mono text-sm tracking-wide">Hello, I'm</span>
+              <span className="text-neonBlue font-mono text-sm tracking-wide font-medium">Hello, I'm</span>
             </motion.div>
 
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight leading-tight transition-colors duration-500"
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white mb-0 tracking-tight leading-tight transition-colors duration-500"
             >
               Abdulla <br className="hidden md:block lg:hidden" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-cyan-400 to-neonPurple">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-neonBlue dark:via-cyan-400 dark:to-neonPurple">
                 Thaslim
               </span>
             </motion.h1>
@@ -144,7 +144,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl md:text-4xl font-bold text-slate-700 dark:text-slate-300 mb-6 h-[40px] md:h-[48px] flex items-center transition-colors duration-500"
+              className="text-2xl md:text-4xl font-bold text-slate-700 dark:text-slate-300 mb-2 h-[40px] md:h-[48px] flex items-center transition-colors duration-500"
             >
               <span className="mr-3">A</span>
               <span className="text-slate-900 dark:text-white font-mono transition-colors duration-500">{displayText}</span>
@@ -155,7 +155,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mb-10 max-w-lg leading-relaxed font-light transition-colors duration-500"
+              className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mb-4 max-w-lg leading-relaxed font-light transition-colors duration-500"
             >
               I build fast, scalable, and secure web applications using modern technologies with a focus on clean design and powerful backend systems.
             </motion.p>
@@ -164,19 +164,19 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-4 items-center mb-12"
+              className="flex flex-wrap gap-4 items-center mb-6"
             >
               <a
                 href="#projects"
-                className="relative overflow-hidden px-8 py-4 bg-slate-900 dark:bg-white/5 text-white font-semibold rounded-full border border-transparent dark:border-white/10 hover:border-neonBlue/50 transition-all duration-300 flex items-center gap-2 group shadow-[0_0_0_rgba(59,130,246,0)] hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+                className="relative overflow-hidden px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-white/5 dark:to-white/5 text-white font-semibold rounded-full border border-transparent dark:border-white/10 hover:border-neonBlue/50 transition-all duration-300 flex items-center gap-2 group shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-1"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/80 to-neonPurple/80 dark:from-neonBlue/20 dark:to-neonPurple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative z-10 group-hover:text-white">View Projects</span>
-                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform group-hover:text-white" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-700 dark:from-neonBlue/20 dark:to-neonPurple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10 text-white">View Projects</span>
+                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform text-white" />
               </a>
               <a
                 href="#contact"
-                className="px-8 py-4 glass-panel bg-white/70 dark:bg-white/5 text-slate-700 dark:text-slate-300 font-semibold rounded-full hover:bg-slate-200 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all duration-300"
+                className="px-8 py-4 glass-panel bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 font-semibold rounded-full border border-slate-200 hover:border-slate-300 dark:border-transparent dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all duration-300 hover:shadow-md hover:-translate-y-1"
               >
                 Contact Me
               </a>
@@ -198,7 +198,7 @@ export default function Hero() {
                   href={social.href} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="w-12 h-12 rounded-full glass-panel bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-neonBlue dark:hover:text-neonBlue hover:border-neonBlue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 group"
+                  className="w-12 h-12 rounded-full glass-panel bg-white border border-slate-200 dark:bg-white/5 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-neonBlue hover:border-blue-200 hover:shadow-md hover:-translate-y-1 dark:hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 group"
                 >
                   <social.icon size={22} className="group-hover:scale-110 transition-transform" />
                 </a>
@@ -216,9 +216,9 @@ export default function Hero() {
             {/* Core Glowing Sphere */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <motion.div 
-                animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.8, 0.6] }}
+                animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="w-48 h-48 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple blur-[40px]"
+                className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-400 to-indigo-400 dark:from-neonBlue dark:to-neonPurple blur-[40px]"
               />
             </div>
             
@@ -226,10 +226,10 @@ export default function Hero() {
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border border-slate-300 dark:border-slate-700/50 flex items-center justify-center transition-colors duration-500"
+              className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border border-slate-200/80 dark:border-slate-700/50 flex items-center justify-center transition-colors duration-500"
             >
-              <div className="absolute top-0 w-4 h-4 bg-neonBlue rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)]" />
-              <div className="absolute bottom-0 w-3 h-3 bg-neonPurple rounded-full shadow-[0_0_15px_rgba(168,85,247,0.8)]" />
+              <div className="absolute top-0 w-4 h-4 bg-blue-500 dark:bg-neonBlue rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)] dark:shadow-[0_0_15px_rgba(59,130,246,0.8)]" />
+              <div className="absolute bottom-0 w-3 h-3 bg-indigo-500 dark:bg-neonPurple rounded-full shadow-[0_0_10px_rgba(168,85,247,0.5)] dark:shadow-[0_0_15px_rgba(168,85,247,0.8)]" />
             </motion.div>
             
             <motion.div 

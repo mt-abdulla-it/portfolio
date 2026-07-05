@@ -67,8 +67,8 @@ function EducationCard({ edu, index }: { edu: typeof educationDetails[0], index:
       } flex-col pl-12 md:pl-0`}
     >
       {/* Timeline Dot */}
-      <div className="absolute left-6 md:left-1/2 top-6 md:top-8 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-slate-900 border-2 border-neonPurple shadow-[0_0_15px_rgba(168,85,247,0.3)] dark:shadow-[0_0_15px_rgba(168,85,247,0.5)] z-20 flex items-center justify-center transition-transform hover:scale-125 duration-300">
-        <div className="w-3 h-3 rounded-full bg-neonBlue animate-pulse" />
+      <div className="absolute left-6 md:left-1/2 top-6 md:top-8 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-slate-900 border-2 border-indigo-500 dark:border-neonPurple shadow-sm dark:shadow-[0_0_15px_rgba(168,85,247,0.5)] z-20 flex items-center justify-center transition-transform hover:scale-125 duration-300">
+        <div className="w-3 h-3 rounded-full bg-blue-500 dark:bg-neonBlue animate-pulse" />
       </div>
 
       {/* Empty Space for Desktop Alternate Layout */}
@@ -78,11 +78,11 @@ function EducationCard({ edu, index }: { edu: typeof educationDetails[0], index:
       <div className="w-full md:w-5/12">
         <div 
           onClick={() => setIsExpanded(!isExpanded)}
-          className="glass-panel bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-neonPurple/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] transition-all duration-300 group cursor-pointer"
+          className="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-indigo-300 dark:hover:border-neonPurple/40 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] transition-all duration-300 group cursor-pointer"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white group-hover:text-neonPurple dark:group-hover:text-neonPurple transition-colors">
+              <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-neonPurple transition-colors">
                 {edu.degree}
               </h3>
               <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300 mt-2 font-medium">
@@ -138,11 +138,11 @@ export default function Education() {
   });
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-[#050505] relative overflow-hidden transition-colors duration-500" id="education">
+    <section className="py-12 bg-slate-50 dark:bg-[#050505] relative overflow-hidden transition-colors duration-500" id="education">
       {/* Background Ornaments */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-neonPurple/5 dark:bg-neonPurple/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-neonBlue/5 dark:bg-neonBlue/10 rounded-full blur-[150px]" />
+        <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-indigo-500/5 dark:bg-neonPurple/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-blue-500/5 dark:bg-neonBlue/10 rounded-full blur-[150px]" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -154,7 +154,7 @@ export default function Education() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 transition-colors duration-500">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonPurple to-neonBlue">Education</span>
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-600 dark:from-neonPurple dark:to-neonBlue">Education</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto transition-colors duration-500">
             A chronological timeline of my academic background and professional training.
