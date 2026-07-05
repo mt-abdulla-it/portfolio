@@ -1463,6 +1463,14 @@ video {
 .bg-neonBlue\/5 {
   background-color: rgb(0 243 255 / 0.05);
 }
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity, 1));
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -2518,6 +2526,9 @@ body {
 .dark\:bg-slate-900\/80:is(.dark *) {
   background-color: rgb(15 23 42 / 0.8);
 }
+.dark\:bg-white\/10:is(.dark *) {
+  background-color: rgb(255 255 255 / 0.1);
+}
 .dark\:from-neonBlue\/20:is(.dark *) {
   --tw-gradient-from: rgb(0 243 255 / 0.2) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 243 255 / 0) var(--tw-gradient-to-position);
@@ -2579,6 +2590,11 @@ body {
   --tw-shadow-colored: 0 0 50px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.dark\:shadow-\[0_0_15px_rgba\(59\2c 130\2c 246\2c 0\.5\)\]:is(.dark *) {
+  --tw-shadow: 0 0 15px rgba(59,130,246,0.5);
+  --tw-shadow-colored: 0 0 15px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .dark\:hover\:border-neonBlue\/30:hover:is(.dark *) {
   border-color: rgb(0 243 255 / 0.3);
 }
@@ -2608,6 +2624,10 @@ body {
 .group:hover .dark\:group-hover\:text-white:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.group:hover .dark\:group-hover\:text-neonBlue:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(0 243 255 / var(--tw-text-opacity, 1));
 }
 @media (min-width: 640px) {
 
