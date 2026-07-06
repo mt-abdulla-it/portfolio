@@ -1,0 +1,10 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F3FF" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#050505" />
+  <path d="M128 50 L190 200 L160 200 L145 160 L111 160 L96 200 L66 200 Z M128 85 L119 135 L137 135 Z" fill="url(#neonGradient)" />
+</svg>

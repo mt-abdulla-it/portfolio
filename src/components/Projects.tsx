@@ -449,49 +449,53 @@ export default function Projects() {
               </div>
             )}
             
-            {/* Premium GitHub CTA Section */}
+            {/* Premium GitHub CTA Section (Shortened Banner) */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-24 md:mt-32 relative max-w-4xl mx-auto w-full px-4 md:px-0"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-16 md:mt-24 relative max-w-4xl mx-auto w-full px-4 md:px-0"
             >
               {/* Background Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/20 to-neonPurple/20 blur-3xl -z-10 rounded-[3rem]"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/20 to-neonPurple/20 blur-2xl -z-10 rounded-[2rem]"></div>
               
-              <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/50 dark:border-slate-800/50 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl p-10 md:p-16 text-center shadow-2xl group/card">
+              <div className="relative overflow-hidden rounded-[2rem] border border-slate-200/50 dark:border-slate-800/50 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 shadow-xl group/card flex flex-col md:flex-row items-center justify-between gap-8">
+                
                 {/* Floating subtle shapes */}
-                <div className="absolute -top-24 -right-24 w-64 h-64 bg-neonBlue/10 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-neonPurple/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute -top-12 -right-12 w-48 h-48 bg-neonBlue/10 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-neonPurple/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
 
-                <motion.div 
-                  className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-white dark:bg-slate-800 mb-8 shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-slate-100 dark:border-slate-700 relative z-10"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
-                >
-                  <Github size={48} className="text-slate-900 dark:text-white" />
-                </motion.div>
-                
-                <h3 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 relative z-10">
-                  More Projects
-                </h3>
-                
-                <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto relative z-10">
-                  Explore all my work on GitHub.
-                </p>
+                <div className="flex flex-col md:flex-row items-center gap-6 relative z-10 text-center md:text-left">
+                  <motion.div 
+                    className="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-full bg-white dark:bg-slate-800 shadow-md border border-slate-100 dark:border-slate-700"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
+                  >
+                    <Github size={32} className="text-slate-900 dark:text-white" />
+                  </motion.div>
+                  
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2">
+                      More Projects
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-base max-w-md">
+                      Explore all my work and open-source contributions on GitHub.
+                    </p>
+                  </div>
+                </div>
                 
                 <a 
                   href="https://github.com/mt-abdulla-it" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,243,255,0.4)] overflow-hidden z-10"
+                  className="flex-shrink-0 group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-base transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,243,255,0.3)] overflow-hidden z-10 w-full md:w-auto"
                 >
                   {/* Hover background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-neonBlue to-neonPurple opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   <span className="relative z-10 group-hover:text-white transition-colors duration-300">Go to GitHub</span>
-                  <Github size={22} className="relative z-10 group-hover:text-white transition-all duration-500 group-hover:rotate-[360deg]" />
+                  <Github size={20} className="relative z-10 group-hover:text-white transition-all duration-500 group-hover:rotate-[360deg]" />
                 </a>
               </div>
             </motion.div>

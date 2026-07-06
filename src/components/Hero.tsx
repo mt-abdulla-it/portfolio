@@ -107,19 +107,19 @@ export default function Hero() {
         />
       </motion.div>
 
-      <div className="container mx-auto px-6 md:px-12 z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-8">
+      <div className="container mx-auto max-w-[1200px] px-6 md:px-12 z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-12">
           
           {/* Left Side: Text Content */}
           <motion.div 
             style={{ opacity: opacityText, y: yText }}
-            className="w-full lg:w-1/2 flex flex-col items-start"
+            className="w-full lg:w-1/2 flex flex-col items-start text-left gap-6 lg:gap-8"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel bg-white/90 dark:bg-white/5 border border-slate-200 dark:border-neonBlue/30 mb-2 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel bg-white/90 dark:bg-white/5 border border-slate-200 dark:border-neonBlue/30 shadow-sm"
             >
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neonBlue opacity-75"></span>
@@ -132,7 +132,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white mb-0 tracking-tight leading-tight transition-colors duration-500"
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.3] transition-colors duration-500"
             >
               Abdulla <br className="hidden md:block lg:hidden" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-neonBlue dark:via-cyan-400 dark:to-neonPurple">
@@ -144,7 +144,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl md:text-4xl font-bold text-slate-700 dark:text-slate-300 mb-2 h-[40px] md:h-[48px] flex items-center transition-colors duration-500"
+              className="text-2xl md:text-4xl font-bold text-slate-700 dark:text-slate-300 h-[40px] md:h-[48px] flex items-center transition-colors duration-500"
             >
               <span className="mr-3">A</span>
               <span className="text-slate-900 dark:text-white font-mono transition-colors duration-500">{displayText}</span>
@@ -155,7 +155,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mb-4 max-w-lg leading-relaxed font-light transition-colors duration-500"
+              className="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-lg leading-[1.6] font-light transition-colors duration-500"
             >
               I build fast, scalable, and secure web applications using modern technologies with a focus on clean design and powerful backend systems.
             </motion.p>
@@ -164,7 +164,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-4 items-center mb-6"
+              className="flex flex-row gap-4 items-center w-full justify-start"
             >
               <a
                 href="#projects"
@@ -186,7 +186,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex gap-6 items-center"
+              className="flex flex-row gap-6 items-center w-full justify-start"
             >
               {[
                 { icon: Github, href: "https://github.com/mt-abdulla-it" },
