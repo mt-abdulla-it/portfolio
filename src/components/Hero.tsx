@@ -255,15 +255,21 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [-15, 15, -15], rotate: [-2, 2, -2] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[0%] -left-2 md:-left-20 z-20 glass-panel bg-white/90 dark:bg-slate-900/90 p-2 md:p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-xl max-w-[130px] md:max-w-[200px]"
+              className="absolute top-[5%] -left-2 md:-left-20 z-20 bg-slate-900/90 backdrop-blur-xl p-3 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-blue-500/10 min-w-[140px] md:min-w-[220px]"
             >
-              <div className="flex items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2 pb-1.5 md:pb-2 border-b border-slate-200 dark:border-white/10">
-                <Code2 size={12} className="text-neonBlue md:w-3.5 md:h-3.5" />
-                <span className="text-[10px] md:text-xs font-mono text-slate-700 dark:text-slate-300">frontend.tsx</span>
+              {/* MacOS Window Dots */}
+              <div className="flex items-center gap-1.5 mb-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                <div className="ml-2 flex items-center gap-1.5">
+                  <Code2 size={12} className="text-neonBlue/80" />
+                  <span className="text-[10px] md:text-xs font-mono text-slate-400">frontend.tsx</span>
+                </div>
               </div>
-              <pre className="text-[8px] md:text-[10px] font-mono text-slate-600 dark:text-slate-400">
-                <span className="text-pink-600 dark:text-pink-400">export default</span> function App() {'{\n'}
-                {'  '}return {'(\n'}
+              <pre className="text-[9px] md:text-[11px] font-mono text-slate-300 leading-relaxed">
+                <span className="text-purple-400">export default</span> <span className="text-blue-400">function</span> <span className="text-yellow-200">App</span>() {'{\n'}
+                {'  '}<span className="text-purple-400">return</span> {'(\n'}
                 {'    '}&lt;<span className="text-neonBlue">Hero</span> /&gt;{'\n'}
                 {'  )'};{'\n'}
                 {'}'}
@@ -273,16 +279,22 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [15, -15, 15], rotate: [2, -2, 2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-[0%] -right-2 md:-right-10 z-20 glass-panel bg-white/90 dark:bg-slate-900/90 p-2 md:p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 shadow-xl max-w-[130px] md:max-w-[200px]"
+              className="absolute bottom-[5%] -right-2 md:-right-10 z-20 bg-slate-900/90 backdrop-blur-xl p-3 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-purple-500/10 min-w-[140px] md:min-w-[220px]"
             >
-              <div className="flex items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2 pb-1.5 md:pb-2 border-b border-slate-200 dark:border-white/10">
-                <Database size={12} className="text-neonPurple md:w-3.5 md:h-3.5" />
-                <span className="text-[10px] md:text-xs font-mono text-slate-700 dark:text-slate-300">api.ts</span>
+              {/* MacOS Window Dots */}
+              <div className="flex items-center gap-1.5 mb-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                <div className="ml-2 flex items-center gap-1.5">
+                  <Database size={12} className="text-neonPurple/80" />
+                  <span className="text-[10px] md:text-xs font-mono text-slate-400">api.ts</span>
+                </div>
               </div>
-              <pre className="text-[8px] md:text-[10px] font-mono text-slate-600 dark:text-slate-400">
-                <span className="text-pink-600 dark:text-pink-400">async</span> function fetch() {'{\n'}
-                {'  '}<span className="text-neonBlue">await</span> db.connect();{'\n'}
-                {'  '}return <span className="text-green-600 dark:text-green-400">"Success"</span>;{'\n'}
+              <pre className="text-[9px] md:text-[11px] font-mono text-slate-300 leading-relaxed">
+                <span className="text-purple-400">async</span> <span className="text-blue-400">function</span> <span className="text-yellow-200">fetch</span>() {'{\n'}
+                {'  '}<span className="text-purple-400">await</span> <span className="text-blue-300">db</span>.<span className="text-yellow-200">connect</span>();{'\n'}
+                {'  '}<span className="text-purple-400">return</span> <span className="text-green-400">"Success"</span>;{'\n'}
                 {'}'}
               </pre>
             </motion.div>
