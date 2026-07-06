@@ -269,19 +269,19 @@ export default function Projects() {
         <div className="absolute top-[40%] right-[10%] w-[40%] h-[40%] rounded-full bg-neonPurple blur-[150px]" />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto max-w-[1200px] px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-16 text-left"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
             Featured <span className="bg-clip-text text-transparent bg-gradient-to-r from-neonBlue to-neonPurple">Projects</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-lg">
             A showcase of my recent work, open-source contributions, and side projects built with modern web technologies.
           </p>
         </motion.div>

@@ -64,7 +64,7 @@ export default function Skills() {
         <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-indigo-500/5 dark:bg-neonPurple/10 rounded-full blur-[150px]" />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto max-w-[1200px] px-6 md:px-12 relative z-10">
         
         {/* Header section */}
         <motion.div
@@ -72,19 +72,19 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 text-center"
+          className="mb-16 text-left"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 transition-colors duration-500">
             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-neonBlue dark:to-neonPurple">Skills</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-neonBlue dark:to-neonPurple mx-auto rounded-full shadow-sm dark:shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg transition-colors duration-500">
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-neonBlue dark:to-neonPurple rounded-full shadow-sm dark:shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl text-lg transition-colors duration-500">
             A comprehensive overview of my technical expertise, categorized by domain. Hover over cards for details.
           </p>
         </motion.div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-16">
+        <div className="flex flex-wrap justify-start gap-2 md:gap-4 mb-16">
           {skillCategories.map((category) => (
             <button
               key={category}

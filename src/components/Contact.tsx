@@ -60,19 +60,19 @@ export default function Contact() {
         />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto max-w-[1200px] px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 text-center"
+          className="mb-16 text-left"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 transition-colors duration-500">
             Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">Touch</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-neonBlue to-neonPurple mx-auto rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg transition-colors duration-500">
+          <div className="w-24 h-1.5 bg-gradient-to-r from-neonBlue to-neonPurple rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl text-lg transition-colors duration-500">
             Have a project in mind or looking to collaborate? I'm always open to discussing new opportunities and creative ideas.
           </p>
         </motion.div>

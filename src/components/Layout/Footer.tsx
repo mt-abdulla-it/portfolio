@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="absolute -bottom-[20%] -right-[10%] w-[40%] h-[40%] rounded-full bg-neonPurple/10 dark:bg-neonPurple/10 blur-[120px]" />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto max-w-[1200px] px-6 md:px-12 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

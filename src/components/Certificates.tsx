@@ -249,19 +249,19 @@ export default function Certificates() {
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-neonPurple/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-cyan-500/5 rounded-[100%] blur-[100px] pointer-events-none mix-blend-screen"></div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto max-w-[1200px] px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-16 md:mb-20 text-center"
+          className="mb-16 md:mb-20 text-left"
         >
           <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-600 to-slate-400 dark:from-white dark:via-slate-200 dark:to-slate-500 mb-6 tracking-tight uppercase drop-shadow-sm transition-colors duration-500">
             CERTIFICATES
           </h2>
-          <div className="w-32 h-1.5 bg-gradient-to-r from-neonBlue to-neonPurple mx-auto rounded-full shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
-          <p className="mt-8 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed transition-colors duration-500">
+          <div className="w-32 h-1.5 bg-gradient-to-r from-neonBlue to-neonPurple rounded-full shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
+          <p className="mt-8 text-slate-600 dark:text-slate-400 max-w-2xl text-lg leading-relaxed transition-colors duration-500">
             A showcase of my continuous learning journey, certifications, and verified skills from industry-leading platforms.
           </p>
         </motion.div>
