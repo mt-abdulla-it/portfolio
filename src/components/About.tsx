@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, Cpu, Layers, Sparkles, Zap, CheckCircle2 } from "lucide-react";
+import { Terminal, Cpu, Layers, Sparkles, Zap, CheckCircle2, Award } from "lucide-react";
 import Image from "next/image";
 
 const highlights = [
@@ -16,10 +16,10 @@ const highlights = [
 ];
 
 const stats = [
-  { label: "Years Experience", value: "3+", icon: Terminal, color: "text-neonBlue" },
-  { label: "Projects Completed", value: "20+", icon: Layers, color: "text-neonPurple" },
+  { label: "Years Experience", value: "2.5+", icon: Terminal, color: "text-neonBlue" },
+  { label: "Projects Completed", value: "18+", icon: Layers, color: "text-neonPurple" },
   { label: "Tech Mastered", value: "15+", icon: Cpu, color: "text-cyan-400" },
-  { label: "Client Satisfaction", value: "100%", icon: Sparkles, color: "text-neonBlue" },
+  { label: "Certificates", value: "40+", icon: Award, color: "text-neonBlue" },
 ];
 
 const containerVariants = {
@@ -66,7 +66,7 @@ export default function About() {
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-12 items-center lg:items-start">
-          
+
           {/* Left Side: Content */}
           <motion.div
             variants={containerVariants}
@@ -81,11 +81,11 @@ export default function About() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-cyan-500 dark:to-cyan-400">Full Stack Developer</span>
               </h3>
               <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed font-light transition-colors duration-500">
-                focused on building modern, scalable, and secure web applications. 
+                focused on building modern, scalable, and secure web applications.
                 I bridge the gap between elegant user interfaces and robust backend architectures to deliver complete digital solutions.
               </p>
             </motion.div>
-            
+
             <motion.div variants={itemVariants} className="mb-10">
               <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2 transition-colors duration-500">
                 <Zap size={20} className="text-neonPurple" />
@@ -139,7 +139,7 @@ export default function About() {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
               {stats.map((stat, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}

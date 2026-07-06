@@ -28,6 +28,46 @@ const formatDate = (dateString: string) => {
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
+const formatProjectName = (name: string) => {
+  let formatted = name.replace(/[-_]/g, ' ');
+  formatted = formatted.replace(/([a-z])([A-Z])/g, '$1 $2');
+  formatted = formatted.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  
+  // Custom display name overrides
+  if (formatted === 'Edu Quiz' || formatted === 'Eduquiz') {
+    return 'Interactive Quiz Platform';
+  }
+  if (formatted === 'Mars Tech') {
+    return 'Mars Tech Basic App';
+  }
+  if (formatted === 'Bulky' || formatted === 'Bulky Mvc' || formatted === 'Bulky M V C' || formatted.toLowerCase().includes('bulky')) {
+    return 'E Commerce Web App';
+  }
+  
+  return formatted;
+};
+
+const getProjectDescription = (name: string, originalDesc: string) => {
+  if (originalDesc) return originalDesc;
+  
+  const formatted = formatProjectName(name);
+  
+  switch(formatted) {
+    case 'Interactive Quiz Platform':
+      return 'A dynamic and engaging platform for creating and taking interactive quizzes.';
+    case 'E Commerce Web App':
+      return 'A full-featured E-Commerce web application featuring robust product management and a secure checkout process.';
+    case 'Perception Mapper':
+      return 'An advanced mapping tool for visualizing and analyzing complex data structures and networks.';
+    case 'Payroll Management System':
+      return 'A comprehensive system designed to streamline employee payroll, calculations, and management.';
+    case 'Operating System':
+      return 'A low-level operating system concept demonstrating core OS principles and system architecture.';
+    default:
+      return 'A modern application built with a strong focus on clean code, performance, and premium user experience.';
+  }
+};
+
 
 // ProjectCard component handles the image fallback state
 const ProjectCard = ({ repo, index }: { repo: Repo, index: number }) => {
@@ -35,10 +75,17 @@ const ProjectCard = ({ repo, index }: { repo: Repo, index: number }) => {
   const [imgError, setImgError] = useState(false);
 
   const handleImageError = () => {
-    if (imgSrc.endsWith('.jpg')) {
+    if (imgSrc === `/projects/${repo.name}.jpg`) {
       setImgSrc(`/projects/${repo.name}.png`);
-    } else if (imgSrc.endsWith('.png')) {
+    } else if (imgSrc === `/projects/${repo.name}.png`) {
       setImgSrc(`/projects/${repo.name}.jpeg`);
+    } else if (imgSrc === `/projects/${repo.name}.jpeg`) {
+      // Fallback to formatted name if raw name fails
+      setImgSrc(`/projects/${formatProjectName(repo.name)}.jpg`);
+    } else if (imgSrc === `/projects/${formatProjectName(repo.name)}.jpg`) {
+      setImgSrc(`/projects/${formatProjectName(repo.name)}.png`);
+    } else if (imgSrc === `/projects/${formatProjectName(repo.name)}.png`) {
+      setImgSrc(`/projects/${formatProjectName(repo.name)}.jpeg`);
     } else {
       setImgError(true);
     }
@@ -76,8 +123,8 @@ const ProjectCard = ({ repo, index }: { repo: Repo, index: number }) => {
 
       <div className="p-6 flex flex-col flex-grow relative z-10">
         <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-neonBlue transition-colors truncate pr-4" title={repo.name}>
-            {repo.name}
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-neonBlue transition-colors truncate pr-4" title={formatProjectName(repo.name)}>
+            {formatProjectName(repo.name)}
           </h3>
           <div className="flex gap-2 shrink-0">
             {repo.homepage && (
@@ -92,7 +139,7 @@ const ProjectCard = ({ repo, index }: { repo: Repo, index: number }) => {
         </div>
         
         <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-grow leading-relaxed line-clamp-3">
-          {repo.description || "No description provided for this repository."}
+          {getProjectDescription(repo.name, repo.description)}
         </p>
         
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
@@ -140,7 +187,11 @@ export default function Projects() {
             "HTML-CSS-JS",
             "Application",
             "Artificial-Intelligence",
-            "portfolio"
+            "portfolio",
+            "Network-Scanner",
+            "Network_Scanner",
+            "NetworkScanner",
+            "Network Scanner"
           ];
           
           let validRepos = data.filter(r => !r.fork && !excludedProjects.includes(r.name));
@@ -190,7 +241,7 @@ export default function Projects() {
 
   const filteredRepos = useMemo(() => {
     let result = repos.filter((r) => {
-      const matchesSearch = r.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      const matchesSearch = formatProjectName(r.name).toLowerCase().includes(searchTerm.toLowerCase()) || 
                             (r.description && r.description.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchesLang = filterLang === "All" || r.language === filterLang;
       return matchesSearch && matchesLang;
@@ -199,7 +250,7 @@ export default function Projects() {
     if (sortBy === "stars") {
       result.sort((a, b) => b.stargazers_count - a.stargazers_count);
     } else if (sortBy === "name") {
-      result.sort((a, b) => a.name.localeCompare(b.name));
+      result.sort((a, b) => formatProjectName(a.name).localeCompare(formatProjectName(b.name)));
     } else {
       result.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
     }
@@ -332,11 +383,11 @@ export default function Projects() {
                     </div>
                     
                     <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-neonBlue group-hover:to-neonPurple transition-all duration-300">
-                      {featuredProject.name}
+                      {formatProjectName(featuredProject.name)}
                     </h3>
                     
                     <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 max-w-2xl leading-relaxed">
-                      {featuredProject.description || "A feature-rich repository showcasing advanced development patterns and high-quality code structure."}
+                      {getProjectDescription(featuredProject.name, featuredProject.description)}
                     </p>
                     
                     <div className="flex flex-wrap items-center gap-4 mb-8">
@@ -397,6 +448,53 @@ export default function Projects() {
                 <p className="text-slate-500 dark:text-slate-400 text-lg">No projects found matching your criteria.</p>
               </div>
             )}
+            
+            {/* Premium GitHub CTA Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mt-24 md:mt-32 relative max-w-4xl mx-auto w-full px-4 md:px-0"
+            >
+              {/* Background Glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/20 to-neonPurple/20 blur-3xl -z-10 rounded-[3rem]"></div>
+              
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/50 dark:border-slate-800/50 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl p-10 md:p-16 text-center shadow-2xl group/card">
+                {/* Floating subtle shapes */}
+                <div className="absolute -top-24 -right-24 w-64 h-64 bg-neonBlue/10 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-neonPurple/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+
+                <motion.div 
+                  className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-white dark:bg-slate-800 mb-8 shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] border border-slate-100 dark:border-slate-700 relative z-10"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
+                >
+                  <Github size={48} className="text-slate-900 dark:text-white" />
+                </motion.div>
+                
+                <h3 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 relative z-10">
+                  More Projects
+                </h3>
+                
+                <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto relative z-10">
+                  Explore all my work on GitHub.
+                </p>
+                
+                <a 
+                  href="https://github.com/mt-abdulla-it" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,243,255,0.4)] overflow-hidden z-10"
+                >
+                  {/* Hover background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-neonBlue to-neonPurple opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">Go to GitHub</span>
+                  <Github size={22} className="relative z-10 group-hover:text-white transition-all duration-500 group-hover:rotate-[360deg]" />
+                </a>
+              </div>
+            </motion.div>
           </div>
         )}
       </div>
@@ -410,10 +508,17 @@ const FeaturedProjectImage = ({ repoName }: { repoName: string }) => {
   const [imgError, setImgError] = useState(false);
   
   const handleImageError = () => {
-    if (imgSrc.endsWith('.jpg')) {
+    if (imgSrc === `/projects/${repoName}.jpg`) {
       setImgSrc(`/projects/${repoName}.png`);
-    } else if (imgSrc.endsWith('.png')) {
+    } else if (imgSrc === `/projects/${repoName}.png`) {
       setImgSrc(`/projects/${repoName}.jpeg`);
+    } else if (imgSrc === `/projects/${repoName}.jpeg`) {
+      // Fallback to formatted name if raw name fails
+      setImgSrc(`/projects/${formatProjectName(repoName)}.jpg`);
+    } else if (imgSrc === `/projects/${formatProjectName(repoName)}.jpg`) {
+      setImgSrc(`/projects/${formatProjectName(repoName)}.png`);
+    } else if (imgSrc === `/projects/${formatProjectName(repoName)}.png`) {
+      setImgSrc(`/projects/${formatProjectName(repoName)}.jpeg`);
     } else {
       setImgError(true);
     }
