@@ -252,7 +252,7 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [-15, 15, -15], rotate: [-2, 2, -2] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[5%] sm:top-[10%] -left-1 sm:-left-4 md:-left-20 z-20 bg-slate-900/90 backdrop-blur-xl p-2.5 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-blue-500/10 min-w-[130px] sm:min-w-[140px] md:min-w-[220px] scale-90 sm:scale-100 origin-top-left"
+              className="absolute -top-4 sm:top-0 md:top-[5%] -left-10 sm:-left-12 md:-left-24 z-0 bg-slate-900/90 backdrop-blur-xl p-2.5 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-blue-500/10 min-w-[130px] sm:min-w-[140px] md:min-w-[220px] scale-90 sm:scale-100 origin-top-left"
             >
               {/* MacOS Window Dots */}
               <div className="flex items-center gap-1.5 mb-3">
@@ -276,7 +276,7 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [15, -15, 15], rotate: [2, -2, 2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-[5%] sm:bottom-[10%] -right-1 sm:-right-4 md:-right-10 z-20 bg-slate-900/90 backdrop-blur-xl p-2.5 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-purple-500/10 min-w-[130px] sm:min-w-[140px] md:min-w-[220px] scale-90 sm:scale-100 origin-bottom-right"
+              className="absolute -bottom-4 sm:bottom-0 md:bottom-[5%] -right-10 sm:-right-12 md:-right-24 z-0 bg-slate-900/90 backdrop-blur-xl p-2.5 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-purple-500/10 min-w-[130px] sm:min-w-[140px] md:min-w-[220px] scale-90 sm:scale-100 origin-bottom-right"
             >
               {/* MacOS Window Dots */}
               <div className="flex items-center gap-1.5 mb-3">
