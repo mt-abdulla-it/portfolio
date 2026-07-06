@@ -121,7 +121,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.3] transition-colors duration-500"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.3] transition-colors duration-500"
             >
               Abdulla <br className="hidden md:block lg:hidden" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-neonBlue dark:via-cyan-400 dark:to-neonPurple">
@@ -153,11 +153,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-row gap-4 items-center w-full justify-start"
+              className="flex flex-col sm:flex-row gap-4 items-center w-full justify-start"
             >
               <a
                 href="#projects"
-                className="relative overflow-hidden px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-white/5 dark:to-white/5 text-white font-semibold rounded-full border border-transparent dark:border-white/10 hover:border-neonBlue/50 transition-all duration-300 flex items-center gap-2 group shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-1"
+                className="relative overflow-hidden w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-white/5 dark:to-white/5 text-white font-semibold rounded-full border border-transparent dark:border-white/10 hover:border-neonBlue/50 transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-1"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-700 dark:from-neonBlue/20 dark:to-neonPurple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative z-10 text-white">View Projects</span>
@@ -165,7 +165,7 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="px-8 py-4 glass-panel bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 font-semibold rounded-full border border-slate-200 hover:border-slate-300 dark:border-transparent dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+                className="w-full sm:w-auto text-center px-6 py-3 sm:px-8 sm:py-4 glass-panel bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 font-semibold rounded-full border border-slate-200 hover:border-slate-300 dark:border-transparent dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all duration-300 hover:shadow-md hover:-translate-y-1"
               >
                 Contact Me
               </a>
@@ -255,7 +255,7 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [-15, 15, -15], rotate: [-2, 2, -2] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[5%] -left-2 md:-left-20 z-20 bg-slate-900/90 backdrop-blur-xl p-3 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-blue-500/10 min-w-[140px] md:min-w-[220px]"
+              className="absolute top-[5%] sm:top-[10%] -left-1 sm:-left-4 md:-left-20 z-20 bg-slate-900/90 backdrop-blur-xl p-2.5 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-blue-500/10 min-w-[130px] sm:min-w-[140px] md:min-w-[220px] scale-90 sm:scale-100 origin-top-left"
             >
               {/* MacOS Window Dots */}
               <div className="flex items-center gap-1.5 mb-3">
@@ -279,7 +279,7 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [15, -15, 15], rotate: [2, -2, 2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-[5%] -right-2 md:-right-10 z-20 bg-slate-900/90 backdrop-blur-xl p-3 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-purple-500/10 min-w-[140px] md:min-w-[220px]"
+              className="absolute bottom-[5%] sm:bottom-[10%] -right-1 sm:-right-4 md:-right-10 z-20 bg-slate-900/90 backdrop-blur-xl p-2.5 md:p-4 rounded-xl border border-white/10 shadow-2xl shadow-purple-500/10 min-w-[130px] sm:min-w-[140px] md:min-w-[220px] scale-90 sm:scale-100 origin-bottom-right"
             >
               {/* MacOS Window Dots */}
               <div className="flex items-center gap-1.5 mb-3">
