@@ -23,6 +23,7 @@ const config: Config = {
       animation: {
         "marquee-left": "marquee-left var(--duration, 40s) linear infinite",
         "marquee-right": "marquee-right var(--duration, 40s) linear infinite",
+        "shimmer": "shimmer 1.5s infinite",
       },
       keyframes: {
         "marquee-left": {
@@ -32,6 +33,9 @@ const config: Config = {
         "marquee-right": {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" },
+        },
+        "shimmer": {
+          "100%": { transform: "translateX(100%)" },
         },
       },
     },
