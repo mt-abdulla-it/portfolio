@@ -10,6 +10,12 @@
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
+<br/>
+
+### 🌐 **[View Live Demo](https://mt-abdulla-it.vercel.app)** 
+
+<br/>
+
 A highly premium, modern, and interactive personal portfolio website built to showcase my projects, skills, and professional experience. Designed with a deep focus on UI/UX, smooth animations, and a sleek SaaS-inspired aesthetic.
 
 </div>
