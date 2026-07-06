@@ -51,7 +51,7 @@ export default function About() {
         <div className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-neonBlue/5 dark:bg-neonBlue/10 rounded-full blur-[150px]" />
       </div>
 
-      <div className="container mx-auto max-w-7xl px-6 relative z-10">
+      <div className="container mx-auto max-w-[1200px] px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,9 +59,10 @@ export default function About() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mb-20 text-left"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white transition-colors duration-500">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 transition-colors duration-500">
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">Me</span>
           </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-neonBlue to-neonPurple rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-12 items-center lg:items-start">
@@ -121,8 +122,8 @@ export default function About() {
             className="w-full lg:w-5/12 flex flex-col items-center gap-8"
           >
             {/* Image Container */}
-            <div className="relative w-full max-w-sm aspect-[4/5] glass-panel bg-white/70 dark:bg-white/5 rounded-2xl p-3 border border-slate-200 dark:border-white/10 group shadow-sm hover:shadow-md transition-shadow duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/5 to-neonPurple/5 rounded-2xl z-0" />
+            <div className="relative w-full max-w-sm aspect-[4/5] glass-panel bg-white/70 dark:bg-white/5 rounded-3xl p-3 border-slate-200 dark:border-white/10 group shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:shadow-[0_0_50px_rgba(168,85,247,0.2)] transition-shadow duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/10 to-neonPurple/10 rounded-3xl z-0" />
               <div className="w-full h-full rounded-2xl overflow-hidden relative z-10 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-white/5">
                 <Image
                   src="/assets/profile2.png"

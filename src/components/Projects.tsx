@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, Star, GitFork, Search, Calendar, Code2, Image as ImageIcon } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import ProjectImage from "./ProjectImage";
+import Image from "next/image";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -71,20 +71,53 @@ const getProjectDescription = (name: string, originalDesc: string) => {
 
 // ProjectCard component handles the image fallback state
 const ProjectCard = ({ repo, index }: { repo: Repo, index: number }) => {
+  const [imgSrc, setImgSrc] = useState(`/projects/${repo.name}.jpg`);
+  const [imgError, setImgError] = useState(false);
+
+  const handleImageError = () => {
+    if (imgSrc === `/projects/${repo.name}.jpg`) {
+      setImgSrc(`/projects/${repo.name}.png`);
+    } else if (imgSrc === `/projects/${repo.name}.png`) {
+      setImgSrc(`/projects/${repo.name}.jpeg`);
+    } else if (imgSrc === `/projects/${repo.name}.jpeg`) {
+      // Fallback to formatted name if raw name fails
+      setImgSrc(`/projects/${formatProjectName(repo.name)}.jpg`);
+    } else if (imgSrc === `/projects/${formatProjectName(repo.name)}.jpg`) {
+      setImgSrc(`/projects/${formatProjectName(repo.name)}.png`);
+    } else if (imgSrc === `/projects/${formatProjectName(repo.name)}.png`) {
+      setImgSrc(`/projects/${formatProjectName(repo.name)}.jpeg`);
+    } else {
+      setImgError(true);
+    }
+  };
+
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.95, y: 15 }}
+      initial={{ opacity: 0, scale: 0.9, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95, y: 15 }}
+      exit={{ opacity: 0, scale: 0.9, y: 20 }}
       transition={{ duration: 0.4, delay: (index % 10) * 0.05 }}
-      className="group relative bg-white/70 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-white/5 rounded-2xl overflow-hidden hover:shadow-md hover:border-slate-300 dark:hover:border-white/10 hover:-translate-y-1 transition-all duration-500 flex flex-col h-full"
+      className="group relative bg-white/70 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200 dark:border-slate-800/60 rounded-3xl overflow-hidden hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_15px_35px_rgba(0,243,255,0.03)] hover:-translate-y-2 transition-all duration-500 flex flex-col h-full"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/50 dark:to-slate-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       
       {/* Project Image Area */}
-      <div className="relative w-full h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-        <ProjectImage repoName={repo.name} formatProjectName={formatProjectName} />
+      <div className="relative w-full h-48 bg-slate-200 dark:bg-slate-800 overflow-hidden">
+        {!imgError ? (
+          <Image 
+            src={imgSrc} 
+            alt={repo.name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            onError={handleImageError}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center">
+            <ImageIcon size={48} className="text-slate-400/50 dark:text-slate-600/50" />
+            <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       </div>
 
@@ -301,16 +334,16 @@ export default function Projects() {
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="bg-white/50 dark:bg-slate-900/40 border border-slate-200 dark:border-white/5 rounded-2xl overflow-hidden h-[400px] flex flex-col relative">
-                <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/40 dark:via-white/5 to-transparent z-20 pointer-events-none"></div>
-                <div className="w-full h-48 bg-slate-100 dark:bg-slate-800 shrink-0"></div>
+              <div key={i} className="bg-white/50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/50 rounded-3xl overflow-hidden h-[400px] flex flex-col relative">
+                <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent z-20 pointer-events-none"></div>
+                <div className="w-full h-48 bg-slate-200 dark:bg-slate-800 shrink-0"></div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <div className="w-1/3 h-6 bg-slate-100 dark:bg-slate-800 rounded-md mb-4"></div>
-                  <div className="w-full h-4 bg-slate-100 dark:bg-slate-800 rounded-md mb-2"></div>
-                  <div className="w-5/6 h-4 bg-slate-100 dark:bg-slate-800 rounded-md mb-6"></div>
+                  <div className="w-1/3 h-6 bg-slate-200 dark:bg-slate-800 rounded-md mb-4"></div>
+                  <div className="w-full h-4 bg-slate-200 dark:bg-slate-800 rounded-md mb-2"></div>
+                  <div className="w-5/6 h-4 bg-slate-200 dark:bg-slate-800 rounded-md mb-6"></div>
                   <div className="mt-auto flex justify-between items-center">
-                    <div className="w-1/4 h-5 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
-                    <div className="w-1/3 h-6 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
+                    <div className="w-1/4 h-5 bg-slate-200 dark:bg-slate-800 rounded-md"></div>
+                    <div className="w-1/3 h-6 bg-slate-200 dark:bg-slate-800 rounded-md"></div>
                   </div>
                 </div>
               </div>
@@ -322,18 +355,18 @@ export default function Projects() {
             {/* Featured Project */}
             {featuredProject && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="group relative bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 p-6 md:p-10 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-500"
+                transition={{ duration: 0.6 }}
+                className="group relative bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-slate-800/80 p-6 md:p-10 rounded-[2rem] overflow-hidden hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_rgba(0,243,255,0.05)] hover:-translate-y-1 transition-all duration-500"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/5 to-neonPurple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
                   {/* Featured Image Area */}
-                  <div className="w-full md:w-1/2 h-64 md:h-80 bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden relative shadow-md">
-                    <ProjectImage repoName={featuredProject.name} formatProjectName={formatProjectName} className="object-cover transition-transform duration-700 hover:scale-105" />
+                  <div className="w-full md:w-1/2 h-64 md:h-80 bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden relative shadow-lg">
+                    <FeaturedProjectImage repoName={featuredProject.name} />
                   </div>
 
                   <div className="w-full md:w-1/2 flex flex-col">
@@ -418,16 +451,16 @@ export default function Projects() {
             
             {/* Premium GitHub CTA Section (Shortened Banner) */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-16 md:mt-20 relative max-w-4xl mx-auto w-full px-4 md:px-0"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-16 md:mt-24 relative max-w-4xl mx-auto w-full px-4 md:px-0"
             >
               {/* Background Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/10 to-neonPurple/10 blur-2xl -z-10 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/20 to-neonPurple/20 blur-2xl -z-10 rounded-[2rem]"></div>
               
-              <div className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow group/card flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="relative overflow-hidden rounded-[2rem] border border-slate-200/50 dark:border-slate-800/50 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 shadow-xl group/card flex flex-col md:flex-row items-center justify-between gap-8">
                 
                 {/* Floating subtle shapes */}
                 <div className="absolute -top-12 -right-12 w-48 h-48 bg-neonBlue/10 rounded-full blur-2xl animate-pulse"></div>
@@ -473,4 +506,44 @@ export default function Projects() {
   );
 }
 
+// A small component just for the featured project image logic to keep it clean
+const FeaturedProjectImage = ({ repoName }: { repoName: string }) => {
+  const [imgSrc, setImgSrc] = useState(`/projects/${repoName}.jpg`);
+  const [imgError, setImgError] = useState(false);
+  
+  const handleImageError = () => {
+    if (imgSrc === `/projects/${repoName}.jpg`) {
+      setImgSrc(`/projects/${repoName}.png`);
+    } else if (imgSrc === `/projects/${repoName}.png`) {
+      setImgSrc(`/projects/${repoName}.jpeg`);
+    } else if (imgSrc === `/projects/${repoName}.jpeg`) {
+      // Fallback to formatted name if raw name fails
+      setImgSrc(`/projects/${formatProjectName(repoName)}.jpg`);
+    } else if (imgSrc === `/projects/${formatProjectName(repoName)}.jpg`) {
+      setImgSrc(`/projects/${formatProjectName(repoName)}.png`);
+    } else if (imgSrc === `/projects/${formatProjectName(repoName)}.png`) {
+      setImgSrc(`/projects/${formatProjectName(repoName)}.jpeg`);
+    } else {
+      setImgError(true);
+    }
+  };
 
+  if (!imgError) {
+    return (
+      <Image 
+        src={imgSrc} 
+        alt={repoName}
+        fill
+        className="object-cover transition-transform duration-700 hover:scale-105"
+        onError={handleImageError}
+      />
+    );
+  }
+  
+  return (
+    <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center">
+      <ImageIcon size={64} className="text-slate-400/50 dark:text-slate-600/50" />
+      <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
+    </div>
+  );
+};
