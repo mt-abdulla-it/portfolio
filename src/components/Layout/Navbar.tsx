@@ -105,10 +105,10 @@ export default function Navbar() {
     >
       <div
         className={cn(
-          "w-full max-w-[1200px] mx-4 md:mx-8 px-5 md:px-6 py-3 flex justify-between items-center transition-all duration-500 rounded-2xl",
+          "w-full max-w-7xl mx-auto px-6 py-3 flex justify-between items-center transition-all duration-500 rounded-2xl",
           scrolled 
-            ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-slate-200/50 dark:border-slate-700/50" 
-            : "bg-transparent border-transparent"
+            ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm border border-slate-200/50 dark:border-white/10" 
+            : "bg-transparent border border-transparent"
         )}
       >
         {/* Logo */}
