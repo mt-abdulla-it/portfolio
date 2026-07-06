@@ -245,9 +245,6 @@ export default function Hero() {
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                   priority
                 />
-                
-                {/* Holographic overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neonBlue/5 to-neonPurple/10 dark:via-neonBlue/10 dark:to-neonPurple/20 mix-blend-overlay pointer-events-none" />
               </div>
             </motion.div>
 
