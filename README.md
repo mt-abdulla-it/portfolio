@@ -12,7 +12,7 @@
 
 <br/>
 
-### 🌐 **[View Live Demo](https://mt-abdulla-it.vercel.app)** 
+### 🌐 **[View Live Demo](https://mt-abdulla-it.github.io/portfolio)** 
 
 <br/>
 

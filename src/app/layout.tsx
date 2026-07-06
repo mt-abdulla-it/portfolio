@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Abdulla Thaslim - Full Stack Developer",
     description: "Portfolio of Abdulla Thaslim, a Full Stack Developer building modern, scalable, and secure web applications.",
-    url: "https://abdulla-portfolio.vercel.app", // Placeholder
+    url: "https://mt-abdulla-it.github.io/portfolio",
     siteName: "Abdulla Thaslim Portfolio",
     type: "website",
   },
