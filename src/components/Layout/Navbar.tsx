@@ -47,6 +47,18 @@ export default function Navbar() {
     }
   });
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     const observers = new Map();
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
@@ -188,6 +200,7 @@ export default function Navbar() {
             className="text-slate-800 dark:text-slate-200 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             <motion.div
               animate={isOpen ? "open" : "closed"}
