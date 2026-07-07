@@ -76,50 +76,39 @@ const fallbackProjects: Repo[] = [
 ];
 
 // Explicitly define top projects to feature
-const FEATURED_PRIORITY = ["Interactive Quiz Platform", "E-Commerce Web App", "Mars Tech App", "Collage Management System"];
+const FEATURED_PRIORITY = ["Smart Waste Management System", "Agri Route Smart Agri Integrated Platform", "Interactive Quiz Platform", "E-Commerce Web App", "Mars Tech App", "Collage Management System"];
 
 // --- COMPONENTS ---
 
+const IMAGE_MAP: Record<string, string> = {
+  "EduQuiz": "/projects/EduQuiz.jpeg",
+  "Bulky_MVC": "/projects/E Commerce Web App.jpeg",
+  "Bulky": "/projects/E Commerce Web App.jpeg",
+  "Mars Tech": "/projects/Mars Tech.png",
+  "Operating-System": "/projects/Operating-System.png",
+  "PayrollManagementSystem": "/projects/PayrollManagementSystem.jpeg",
+  "Perception_Mapper_AI": "/projects/Perception Mapper AI.jpg",
+  "PerceptionMapper": "/projects/PerceptionMapper.jpeg",
+  "Smart-Waste-Management-System": "/projects/Smart Waste Management System.jpg",
+  "AgriRoute-SmartAgri-Integrated-Platform": "/projects/AgriRoute-SmartAgri-Integrated-Platform.jpg",
+  "Collage Management System": "/projects/Collage Management System.jpg"
+};
+
 const ProjectImage = ({ repoName, className }: { repoName: string, className?: string }) => {
-  const imageVariations = useMemo(() => {
-    const formattedName = formatProjectName(repoName);
-    const unhyphenatedName = formattedName.replace(/-/g, ' ');
-    
-    return [
-      `/projects/${repoName}.jpg`,
-      `/projects/${repoName}.png`,
-      `/projects/${repoName}.jpeg`,
-      `/projects/${formattedName}.jpg`,
-      `/projects/${formattedName}.png`,
-      `/projects/${formattedName}.jpeg`,
-      `/projects/${unhyphenatedName}.jpg`,
-      `/projects/${unhyphenatedName}.png`,
-      `/projects/${unhyphenatedName}.jpeg`,
-      `/projects/${repoName.toLowerCase()}.jpg`,
-      `/projects/${repoName.toLowerCase()}.png`
-    ];
-  }, [repoName]);
-
-  const [imgIndex, setImgIndex] = useState(0);
   const [imgError, setImgError] = useState(false);
-
-  const handleImageError = () => {
-    if (imgIndex < imageVariations.length - 1) {
-      setImgIndex(prev => prev + 1);
-    } else {
-      setImgError(true);
-    }
-  };
+  
+  // Get exact mapped image or fallback to a default guess if not in map
+  const imageSrc = IMAGE_MAP[repoName] || `/projects/${repoName}.jpg`;
 
   if (!imgError) {
     return (
       <Image 
-        src={imageVariations[imgIndex]} 
+        src={imageSrc}
         alt={repoName}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className={cn("object-cover transition-transform duration-700", className)}
-        onError={handleImageError}
+        onError={() => setImgError(true)}
         priority={className?.includes('featured')}
       />
     );
@@ -224,7 +213,7 @@ export default function Projects() {
             },
             {
               id: 9999993, name: "AgriRoute-SmartAgri-Integrated-Platform", description: "A smart agriculture integrated platform designed to optimize farming routes and operations.", html_url: "https://github.com/fatheen-se/AgriRoute-SmartAgri-Integrated-Platform", homepage: "",
-              stargazers_count: 0, forks_count: 0, language: "Full Stack", updated_at: new Date().toISOString(), fork: false
+              stargazers_count: 0, forks_count: 0, language: "Java", updated_at: new Date().toISOString(), fork: false
             }
           ];
           
