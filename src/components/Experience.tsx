@@ -8,7 +8,7 @@ const experiences = [
   {
     id: 1,
     title: "Full Stack Developer",
-    company: "Mars Tech International Pvt Ltd",
+    company: "Mars Tech International (Pvt) Ltd",
     date: "Oct 2025 - Present",
     description: [
       "Build full-stack web applications using modern frameworks",
@@ -19,7 +19,7 @@ const experiences = [
   {
     id: 2,
     title: "System Administrator",
-    company: "Mars Tech International Pvt Ltd",
+    company: "Mars Tech International (Pvt) Ltd",
     date: "Oct 2024 - Sep 2025",
     description: [
       "Managed IT infrastructure and server systems",
@@ -30,7 +30,7 @@ const experiences = [
   {
     id: 3,
     title: "Digital Marketing Executive",
-    company: "Ideal IT Solutions Pvt Ltd",
+    company: "Ideal IT Solutions (Pvt) Ltd",
     date: "Oct 2023 - Sep 2024",
     description: [
       "Managed digital marketing campaigns",
