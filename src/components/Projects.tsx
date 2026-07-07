@@ -89,6 +89,7 @@ const IMAGE_MAP: Record<string, string> = {
   "PayrollManagementSystem": "/projects/PayrollManagementSystem.jpeg",
   "Perception_Mapper_AI": "/projects/Perception Mapper AI.jpg",
   "PerceptionMapper": "/projects/PerceptionMapper.jpeg",
+  "Smart-Waste-Management": "/projects/Smart Waste Management System.jpg",
   "Smart-Waste-Management-System": "/projects/Smart Waste Management System.jpg",
   "AgriRoute-SmartAgri-Integrated-Platform": "/projects/AgriRoute-SmartAgri-Integrated-Platform.jpg",
   "Collage Management System": "/projects/Collage Management System.jpg"
@@ -98,7 +99,12 @@ const ProjectImage = ({ repoName, className }: { repoName: string, className?: s
   const [imgError, setImgError] = useState(false);
   
   // Get exact mapped image or fallback to a default guess if not in map
-  const imageSrc = IMAGE_MAP[repoName] || `/projects/${repoName}.jpg`;
+  let imageSrc = IMAGE_MAP[repoName] || `/projects/${repoName}.jpg`;
+
+  // Robustly handle Smart Waste Management regardless of exact repo name from API
+  if (repoName.toLowerCase().includes("smart") && repoName.toLowerCase().includes("waste")) {
+    imageSrc = "/projects/Smart%20Waste%20Management%20System.jpg";
+  }
 
   if (!imgError) {
     return (
@@ -214,10 +220,6 @@ export default function Projects() {
             {
               id: 9999993, name: "AgriRoute-SmartAgri-Integrated-Platform", description: "A smart agriculture integrated platform designed to optimize farming routes and operations.", html_url: "https://github.com/fatheen-se/AgriRoute-SmartAgri-Integrated-Platform", homepage: "",
               stargazers_count: 0, forks_count: 0, language: "Java", updated_at: new Date().toISOString(), fork: false
-            },
-            {
-              id: 9999994, name: "Smart Waste Management System", description: "An intelligent system for optimizing and tracking waste management and collection.", html_url: "https://github.com/mt-abdulla-it", homepage: "",
-              stargazers_count: 0, forks_count: 0, language: "Full Stack", updated_at: new Date().toISOString(), fork: false
             }
           ];
           
