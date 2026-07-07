@@ -221,6 +221,10 @@ export default function Projects() {
             {
               id: 9999992, name: "Mars Tech", description: "An innovative application developed for Mars Tech assignment featuring modern UI.", html_url: "https://github.com/mt-abdulla-it/Application/tree/main/Mars%20Tech", homepage: "",
               stargazers_count: 0, forks_count: 0, language: "Full Stack", updated_at: new Date().toISOString(), fork: false
+            },
+            {
+              id: 9999993, name: "AgriRoute-SmartAgri-Integrated-Platform", description: "A smart agriculture integrated platform designed to optimize farming routes and operations.", html_url: "https://github.com/fatheen-se/AgriRoute-SmartAgri-Integrated-Platfor", homepage: "",
+              stargazers_count: 0, forks_count: 0, language: "Full Stack", updated_at: new Date().toISOString(), fork: false
             }
           ];
           
