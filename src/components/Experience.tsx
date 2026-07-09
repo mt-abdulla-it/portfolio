@@ -9,7 +9,7 @@ const experiences = [
     id: 1,
     title: "Full Stack Developer",
     company: "Mars Tech International (Pvt) Ltd",
-    date: "Oct 2025 - Present",
+    date: "Apr 2025 – Present",
     description: [
       "Build full-stack web applications using modern frameworks",
       "Develop RESTful APIs with Node.js",
@@ -20,7 +20,7 @@ const experiences = [
     id: 2,
     title: "System Administrator",
     company: "Mars Tech International (Pvt) Ltd",
-    date: "Oct 2024 - Sep 2025",
+    date: "Oct 2024 – Mar 2025",
     description: [
       "Managed IT infrastructure and server systems",
       "Provided technical support and troubleshooting",
