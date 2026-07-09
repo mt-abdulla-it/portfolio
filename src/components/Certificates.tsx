@@ -265,19 +265,19 @@ export default function Certificates() {
             A showcase of my continuous learning journey, certifications, and verified skills from industry-leading platforms.
           </p>
         </motion.div>
-      </div>
 
-      {/* Clean Infinite Marquee Scroll without Parallax to remove bottom gap */}
-      <motion.div className="w-full pb-0 relative flex flex-col gap-2">
-        
-        {/* Deep gradient fades for edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-24 md:w-48 bg-gradient-to-r from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-24 md:w-48 bg-gradient-to-l from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
-        
-        {/* Single Marquee Track */}
-        <MarqueeTrack items={certificates} direction="left" duration="150s" rowIndex={0} />
-        
-      </motion.div>
+        {/* Clean Infinite Marquee Scroll without Parallax to remove bottom gap */}
+        <motion.div className="w-full pb-0 relative flex flex-col gap-2">
+          
+          {/* Deep gradient fades for edges */}
+          <div className="absolute top-0 bottom-0 left-0 w-24 md:w-48 bg-gradient-to-r from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-24 md:w-48 bg-gradient-to-l from-slate-50 dark:from-[#0a0f1d] to-transparent z-20 pointer-events-none transition-colors duration-500"></div>
+          
+          {/* Single Marquee Track */}
+          <MarqueeTrack items={certificates} direction="left" duration="150s" rowIndex={0} />
+          
+        </motion.div>
+      </div>
 
       {/* Lightbox Modal */}
       <AnimatePresence mode="wait">
