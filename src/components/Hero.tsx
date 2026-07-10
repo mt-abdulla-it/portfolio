@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowRight, ChevronDown, Code2, Terminal, Database, Cpu } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowRight, ChevronDown, Code2, Terminal, Database, Cpu, Download } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
@@ -168,6 +168,16 @@ export default function Hero() {
                 className="w-full sm:w-auto text-center px-6 py-3 sm:px-8 sm:py-4 glass-panel bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 font-semibold rounded-full border border-slate-200 hover:border-slate-300 dark:border-transparent dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all duration-300 hover:shadow-md hover:-translate-y-1"
               >
                 Contact Me
+              </a>
+              <a
+                href="/Abdulla_Thaslim_Full_Stack_Developer_CV.pdf"
+                download
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 glass-panel bg-white/80 dark:bg-white/5 text-slate-700 dark:text-slate-300 font-semibold rounded-full border border-slate-200 hover:border-neonPurple/50 dark:border-transparent dark:hover:border-neonPurple/50 dark:hover:bg-white/10 hover:text-neonPurple dark:hover:text-neonPurple transition-all duration-300 hover:shadow-md hover:shadow-purple-500/20 hover:-translate-y-1 flex items-center justify-center gap-2 group"
+              >
+                <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
+                Download CV
               </a>
             </motion.div>
 
