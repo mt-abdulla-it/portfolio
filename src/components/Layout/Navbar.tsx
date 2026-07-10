@@ -208,7 +208,7 @@ export default function Navbar() {
           </div>
           {/* 3. Futuristic CV Button */}
           <a
-            href="/resume.pdf"
+            href="/Abdulla_Thaslim_Full_Stack_Developer_CV.pdf"
             target="_blank"
             rel="noreferrer"
             className="group relative ml-2 flex items-center gap-2 px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full text-sm font-extrabold tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden shadow-lg hover:shadow-[0_0_20px_rgba(0,243,255,0.4)]"
@@ -320,7 +320,7 @@ export default function Navbar() {
                 </div>
                 
                 <a
-                  href="/resume.pdf"
+                  href="/Abdulla_Thaslim_Full_Stack_Developer_CV.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="group relative flex items-center justify-center gap-2 w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-extrabold text-lg transition-all duration-300 overflow-hidden shadow-xl"
